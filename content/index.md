@@ -1,10 +1,7 @@
 ---
 title: pie framework 
 layout: Homepage
-bottomText: Smashcut is a fast-paced and intensive program designed by educators and industry veterans
-bottomLinkText: keep me in the loop
 main: 
-  bgVideoUrl: assets/smashcut.mp4
   title: Pie
   subtitle: An Open Source framework for building and sharing interactive assessment question types.
 publishers: 
