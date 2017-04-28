@@ -1,4 +1,4 @@
-# smashcut public site
+# pie framework public site
 
 ## Install dependencies
 
