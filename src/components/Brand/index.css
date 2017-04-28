@@ -1,0 +1,19 @@
+.brand {
+  display: flex;
+  align-items: center;
+}
+.logo {
+    height: 42.5px;
+    margin-right: 7.5px;
+}
+
+.brand small {
+    font-size: 1rem;
+    height: 10px;
+    margin-left: 4px;
+    color: #888;
+}
+.logoText {
+  font-size: 30px;
+  font-family: "Source Sans Pro";
+}

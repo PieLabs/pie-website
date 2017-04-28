@@ -1,0 +1,26 @@
+.featureRow {
+    lost-center: 100% 3rem;
+}
+.feature {
+  lost-column: 1/1;
+}
+.image {
+  lost-column: 1/5;
+}
+
+.image img {
+    width: 50px;
+}
+.description {
+  lost-column: 4/5;
+}
+
+.description h2 {
+  margin:0;
+}
+
+@media (min-width: 900px) {
+  .feature {
+    lost-column: 1/3;
+  }
+}

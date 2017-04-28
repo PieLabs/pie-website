@@ -1,0 +1,14 @@
+
+.bigSection { 
+  height: 30vh; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15rem;
+}
+
+.featuresSection {
+  margin-bottom: 15rem;
+}
+
+

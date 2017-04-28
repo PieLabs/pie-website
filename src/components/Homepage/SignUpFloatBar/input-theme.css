@@ -1,0 +1,27 @@
+.label{
+  color: white;
+}
+
+.inputElement {
+
+  &:focus:not([disabled]):not([readonly]) {
+
+    & ~ .label:not(.fixed) {
+      color: var(--color-primary-dark); /*var(--input-text-highlight-color);*/
+    }
+  }
+}
+
+.bar {
+
+  &::before,
+  &::after {
+    background-color: color(var(--color-primary-light) a(30%));
+    height: 1px;
+  }
+}
+
+.input input{
+  color: white;
+}
+

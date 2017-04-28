@@ -1,0 +1,26 @@
+.footer{
+  background-color:  var(--color-primary-light); 
+  display: flex;
+  padding: 20px;
+  padding-bottom: 60px;
+  border-top: solid 1px color( var(--color-primary-dark) a(10%));
+  color: var(--color-primary-light);
+  width: 100%;
+}
+
+@media only screen and (max-width: 600px){
+  /** if < 600px */
+  .footer{
+    flex-direction: column;
+  }
+}
+
+.nav {
+  display: flex;
+  flex: 1;
+}
+
+.social > *{
+  margin: 10px; 
+  color: var(--color-primary-light);
+}
