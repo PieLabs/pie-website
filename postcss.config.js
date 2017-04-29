@@ -30,7 +30,7 @@ module.exports = (config) => {
             'color-text': 'black',
             maxWidth: '1200px',
             //'unit': '10px',
-            'color-primary': '#e60022',
+            'color-primary': '#EE4923',
             'color-primary-dark': '#292b2c',
             'color-primary-light': 'white',
             'color-primary-grey': '#9B9B9B'

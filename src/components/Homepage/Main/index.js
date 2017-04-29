@@ -12,7 +12,7 @@ export default class Main extends React.Component {
     const { title, subtitle } = this.props;
     return <div className={styles.hero}>
       <div className={styles.logo}>
-        <Svg width="10rem" svg={logoSvg} />
+        <Svg width="10rem" svg={logoSvg} className={styles.svg}/>
       </div>
       <div>
         <div className={styles.heroTitle}>

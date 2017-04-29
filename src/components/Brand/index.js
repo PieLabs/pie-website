@@ -6,7 +6,7 @@ import logoSvg from "../../../content/assets/pie-logo.svg"
 export default function Brand(props) {
   return <div className={styles.brand}>
     <div className={styles.logo}>
-      <Svg width="42" svg={ logoSvg } />
+      <Svg width="42" svg={ logoSvg } className={styles.svg}/>
     </div>
     <div className={styles.logoText}>
       Pie
