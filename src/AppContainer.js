@@ -1,4 +1,5 @@
 import './index.global.css';
+import "./highlightjs.global.css"
 
 import React, { PropTypes } from 'react';
 
