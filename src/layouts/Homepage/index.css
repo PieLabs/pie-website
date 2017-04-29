@@ -8,7 +8,10 @@
 }
 
 .featuresSection {
-  margin-bottom: 15rem;
+  margin-bottom: 10rem;
+  background-color: rgba(115, 94, 94, 0.03);
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 
