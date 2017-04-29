@@ -1,33 +1,39 @@
-import Link from '../Link';
+import { Facebook, Medium, Snapchat, Twitter, Vimeo } from './icons';
 
+import Link from 'phenomic/lib/Link';
 import React from 'react';
 import styles from './index.css';
 
-import Twitter from 'react-icons/lib/ti/social-twitter';
-import Facebook from 'react-icons/lib/ti/social-facebook';
-import Vimeo from 'react-icons/lib/ti/social-vimeo';
+export default class Footer extends React.Component {
 
+  componentDidMount() {
+    const jsCode = `
+     window.Intercom("boot", { app_id: "jgcm12je"});
+    `;
+    new Function(jsCode)();
+  }
+  
+  render() {
+    return <footer className={styles.footer}>
+      <div className={styles.center}>
+        <div className={styles.content}>
+          <nav className={styles.nav}>
+            <Link to="/"><img src="assets/footer_logo.png"></img></Link>
+            <Link to="/mission">Mission</Link>
+            <Link to="/team">Team</Link>
+            <Link to="/faq">FAQ</Link>
+          </nav>
 
-const Footer = () => {
-
-  const { nav, footer, social } = styles;
-
-  return <footer className={footer}>
-    <nav className={nav}>
-      <Link to="/">Home</Link>
-      <Link to="/about">About</Link>
-      <Link to="/docs">Docs</Link>
-      <Link to="/faq">FAQ</Link>
-    </nav>
-    <div>Contact Info</div>
-
-    <div className={social}>
-      <Twitter />
-      <Facebook />
-      <Vimeo />
-    </div>
-
-  </footer>;
+          <div className={styles.social}>
+            <Facebook />
+            <Twitter />
+            <Snapchat />
+            <Vimeo />
+            <Medium />
+          </div>
+        </div>
+        <span className={styles.copyright}>© Smashcut 2017</span>
+      </div>
+    </footer>;
+  }
 }
-
-export default Footer
