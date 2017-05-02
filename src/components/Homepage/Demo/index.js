@@ -13,9 +13,6 @@ export default class Demo extends React.Component {
   componentWillMount() {
     const script = document.createElement("script");
     script.addEventListener('load', () => {
-      const env = {mode: 'gather'};
-      const session = [];
-      pie.bootstrapPlayer(`#${this.id()}`, env, session);
     });
     script.src = `/pie-website/assets/pies/${this.props.pie}/pie-item.js`;
     script.async = true;
@@ -23,7 +20,9 @@ export default class Demo extends React.Component {
   }
   
   render() {
-    return <div id={this.id()}/>;
+    return <div id={this.id()}>
+      <pie-item></pie-item>
+    </div>;
   }
 
 }
