@@ -1,5 +1,6 @@
 import {
   Block,
+  Demo,
   Main,
   FeatureRow
 } from '../../components/Homepage';
@@ -34,6 +35,7 @@ export default (props) => {
       <div className={featuresSection}>
       <FeatureRow features={features}/>
       </div>
+      <Demo pie="corespring-choice"></Demo>
       <Block {...publishers} image={'right'}/>
       <Block {...developers}/>
       

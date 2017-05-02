@@ -4,8 +4,8 @@ which pie >/dev/null || { echo 'Please install the pie-cli project before contin
 
 root=$(pwd)
 
-for dir in `ls pies`;
+for dir in `ls content/assets/pies`;
 do
-  cd "$root/pies/$dir"
-  pie clean && pie pack
+  cd "$root/content/assets/pies/$dir"
+  pie clean && pie pack -C --include-complete 
 done

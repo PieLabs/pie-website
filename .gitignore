@@ -6,5 +6,6 @@ node_modules
 dist
 
 # packed pies
-pies/*/.pie
-pies/*/*.js
+content/assets/pies/*/.pie
+content/assets/pies/*/*.js
+content/assets/pies/example.html
