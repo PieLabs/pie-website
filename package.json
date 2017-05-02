@@ -10,6 +10,7 @@
     "lint": "npm-run-all --parallel lint:*",
     "start": "phenomic start",
     "build": "phenomic build",
+    "pack-pies": "./scripts/pack-pies",
     "pretest": "npm run lint",
     "test": "npm run build",
     "predeploy": "npm run build",

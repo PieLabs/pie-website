@@ -4,3 +4,7 @@ node_modules
 
 # phenomic build
 dist
+
+# packed pies
+pies/*/.pie
+pies/*/*.js

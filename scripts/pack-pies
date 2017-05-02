@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+which pie >/dev/null || { echo 'Please install the pie-cli project before continuing: https://github.com/pielabs/pie-cli' ; exit 1; }
+
+root=$(pwd)
+
+for dir in `ls pies`;
+do
+  cd "$root/pies/$dir"
+  pie clean && pie pack
+done
