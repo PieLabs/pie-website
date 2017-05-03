@@ -11,7 +11,6 @@ export default class FeatureRow extends React.Component {
     render() {
         const features = this.props.features;
         const { feature, featureRow, description, image } = styles;
-        debugger;
 
         return <div className={featureRow}>
             {features.map(content =>

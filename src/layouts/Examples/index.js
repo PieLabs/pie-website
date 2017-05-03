@@ -1,8 +1,4 @@
-import {
-  Block,
-  Main,
-  FeatureRow
-} from '../../components/Homepage';
+import Demo from '../../components/Demo';
 
 import Link from '../../components/Link';
 import Page from '../Page';
@@ -14,24 +10,22 @@ import FontIcon from 'react-toolbox/lib/font_icon';
 
 export default (props) => {
 
+  console.log('pies', pies);
   const {
     bottomLinkText,
     main,
     promoVideo,
     publishers,
     developers,
-    features
+    features,
+    pies
   } = props.head;
 
   const { bottom, bigSection, featuresSection } = styles;
-
   return <Page { ...props }>
       <Head head={props.head} />
-      <section className={bigSection}>
-        <Main {...main}/>
-      </section>
-      <div className={featuresSection}>
-      </div>
+      <Demo pie="corespring-choice"></Demo>
+      <Demo pie="corespring-number-line"></Demo>
 
   </Page>;
 }

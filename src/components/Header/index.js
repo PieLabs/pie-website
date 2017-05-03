@@ -20,6 +20,7 @@ function Header(props) {
         <Link to="/about">About</Link>
         <Link to="/docs">Docs</Link>
         <Link to="/faq">FAQ</Link>
+        <Link to="/examples">Examples</Link>
       </div>;
     } else {
 

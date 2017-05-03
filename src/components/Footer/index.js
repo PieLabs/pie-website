@@ -8,7 +8,7 @@ export default class Footer extends React.Component {
 
   componentDidMount() {
     const jsCode = `
-     window.Intercom("boot", { app_id: "jgcm12je"});
+    //  window.Intercom("boot", { app_id: "jgcm12je"});
     `;
     new Function(jsCode)();
   }
@@ -22,6 +22,7 @@ export default class Footer extends React.Component {
             <Link to="/mission">Mission</Link>
             <Link to="/team">Team</Link>
             <Link to="/faq">FAQ</Link>
+            <Link to="/examples">Examples</Link>
           </nav>
 
           <div className={styles.social}>
