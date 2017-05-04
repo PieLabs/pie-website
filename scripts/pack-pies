@@ -7,7 +7,5 @@ root=$(pwd)
 for dir in `ls content/assets/pies`;
 do
   cd "$root/content/assets/pies/$dir"
-  if [ ! -f "$root/content/assets/pies/$dir/pie-item.js" ]; then
-    pie clean && pie pack -C --include-complete
-  fi
+  pie clean && pie pack --app website -C --include-complete
 done

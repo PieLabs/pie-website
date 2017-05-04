@@ -1,4 +1,5 @@
 import React from 'react';
+import Toolbar from './toolbar';
 
 export default class Demo extends React.Component {
 
@@ -21,6 +22,7 @@ export default class Demo extends React.Component {
   
   render() {
     return <div id={this.id()}>
+      <Toolbar></Toolbar>
       <pie-item></pie-item>
     </div>;
   }
