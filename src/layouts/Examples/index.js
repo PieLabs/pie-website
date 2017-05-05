@@ -9,8 +9,6 @@ import FontIcon from 'react-toolbox/lib/font_icon';
 
 
 export default (props) => {
-
-  console.log('pies', pies);
   const {
     bottomLinkText,
     main,

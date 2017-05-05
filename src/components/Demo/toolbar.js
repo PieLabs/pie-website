@@ -5,20 +5,16 @@ export default class Toolbar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      mode: 'gather'
+      mode: 'gather',
+      locale: 'en-US'
     };
   }
 
-  componentDidMount() {
-    this.dispatchEvent(new CustomEvent('pie.control-panel-ready', { bubbles: true }));
-  }
-
-  onChange(event) {
-    this.setState({
-      mode: event.target.value
-    }, () => {
-      var event = new CustomEvent('envChanged', { bubbles: true });
-      this.dispatchEvent(event, this.env);
+  onChange(key, event) {
+    const update = {};
+    update[key] = event.target.value;
+    this.setState(update, () => {
+      this.props.onEnvChanged(this.state);
     });
   }
 
@@ -26,20 +22,28 @@ export default class Toolbar extends React.Component {
     return this.state;
   }
 
-  dispatchEvent(event, data = {}) {
-    ReactDOM.findDOMNode(this).dispatchEvent(event, {detail: data});
-  }
-
   render() {
     return <div className="toolbar">
-      <label>
-        <input type="radio" value='gather' onChange={this.onChange.bind(this)} checked={this.state.mode === 'gather'}/>
-        Answering question
-      </label>
-      <label>
-        <input type="radio" value='evaluate' onChange={this.onChange.bind(this)} checked={this.state.mode === 'evaluate'}/>
-        Evaluating Response
-      </label>
+      <div>
+        <label>
+          <input type="radio" value='gather' onChange={this.onChange.bind(this, 'mode')} checked={this.state.mode === 'gather'}/>
+          Answering question
+        </label>
+        <label>
+          <input type="radio" value='evaluate' onChange={this.onChange.bind(this, 'mode')} checked={this.state.mode === 'evaluate'}/>
+          Evaluating Response
+        </label>
+      </div>
+      <div>
+        <label>
+          <input type="radio" value='en-US' onChange={this.onChange.bind(this, 'locale')} checked={this.state.locale === 'en-US'}/>
+          English
+        </label>
+        <label>
+          <input type="radio" value='zh-CN' onChange={this.onChange.bind(this, 'locale')} checked={this.state.locale === 'zh-CN'}/>
+          Chinese
+        </label>
+      </div>
     </div>;
   }
 }
