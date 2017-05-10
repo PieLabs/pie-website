@@ -13,13 +13,24 @@ export default class Demo extends React.Component {
     return `pie-item-${this.props.pie}`;
   }
 
+  _loadScripts(scripts) {
+    const fn = scripts.reduceRight((fn, src) => {
+      return () => {
+        const script = document.createElement("script");
+        script.addEventListener('load', fn);
+        script.src = src;
+        script.async = true;
+        document.body.appendChild(script);
+      }
+    }, () => {});
+    fn();
+  }
+
   componentWillMount() {
-    const script = document.createElement("script");
-    script.addEventListener('load', () => {
-    });
-    script.src = `/pie-website/assets/pies/${this.props.pie}/pie-item.js`;
-    script.async = true;
-    document.body.appendChild(script);
+    this._loadScripts(
+      ['pie-item.js', 'pie-configure.js']
+        .map(s => `/pie-website/assets/pies/${this.props.pie}/${s}`)
+    );
   }
 
   onEnvChanged(env) {
