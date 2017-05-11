@@ -10,8 +10,6 @@ export default function DocsPage(props) {
   const { children, head, body } = props;
   const metaTitle = head.metaTitle ? head.metaTitle : head.title;
 
-  console.log('props: ', props);
-
   const { holder, contentHolder, sidebar, docContent, docPage } = styles;
   const meta = [
     { name: "description", content: head.description }
