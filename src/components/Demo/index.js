@@ -67,18 +67,19 @@ export default class Demo extends React.Component {
     this._loadScripts(scripts.map(s => `/pie-website/assets/pies/${name}/${s}`))
       .then(() => {
         return Promise.all([
-          customElements.whenDefined('corespring-choice-configure'),
+          customElements.whenDefined(`${name}-configure`),
           this._loadConfig(name)]);
       })
       .then(([d, config]) => {
-        ReactDOM.findDOMNode(this).querySelector('corespring-choice-configure').model = config.models[0];
+        ReactDOM.findDOMNode(this).querySelector(`${name}-configure`).model = config.models[0];
       })
       .then(() => {
         const config = this._loadedConfig;
-        const controller = window['pie-controllers']['corespring-choice'];
+        const controller = window['pie-controllers'][name];
         return controller.model(config.models[0], this._session, { mode: 'gather' })
       })
       .then(uiModel => {
+        console.log('uiModel', uiModel);
         this.renderEl.session = this._session;
         this.renderEl.model = uiModel;
       })
@@ -88,23 +89,29 @@ export default class Demo extends React.Component {
   }
 
   onEnvChanged(env) {
-    ReactDOM.findDOMNode(this).querySelector(this.tagName).env = env;
+    // how to set the env?
+    this.renderEl.env = env;
   }
 
   render() {
     const { path, name } = this.props;
     const ConfigureTag = `${name}-configure`;
     const RenderTag = name;
+
     const styles = {
       width: '50%',
-      'vertical-align': 'top',
+      verticalAlign: 'top',
       display: 'inline-block',
       padding: '10px'
     };
+
     return <div>
-      <ConfigureTag style={styles}></ConfigureTag >
-      <RenderTag style={styles}></RenderTag>
-    </div >;
+      <ConfigureTag style={styles}></ConfigureTag>
+      <div style={styles}>
+        <Toolbar onEnvChanged={this.onEnvChanged.bind(this)}/>
+        <RenderTag></RenderTag>
+      </div>
+    </div>;
   }
 
 }
