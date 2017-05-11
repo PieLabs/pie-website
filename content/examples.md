@@ -5,7 +5,8 @@ main:
   title: Examples
   subtitle: Make a thing, have a pie.
 pies:
-  corespring-choice:
+  - name: corespring-choice
+    path: /assets/pies/corespring-choice
     title: Choice Interaction
     description: This is a choice interaction
 ---

@@ -1,12 +1,10 @@
 import Demo from '../../components/Demo';
-
+import FontIcon from 'react-toolbox/lib/font_icon';
+import Head from '../Head';
 import Link from '../../components/Link';
 import Page from '../Page';
-import Head from '../Head';
 import React from 'react';
 import styles from './index.css';
-import FontIcon from 'react-toolbox/lib/font_icon';
-
 
 export default (props) => {
   const {
@@ -21,9 +19,7 @@ export default (props) => {
 
   const { bottom, bigSection, featuresSection } = styles;
   return <Page { ...props }>
-      <Head head={props.head} />
-      <Demo pie="corespring-choice"></Demo>
-      <Demo pie="corespring-number-line"></Demo>
-
+    <Head head={props.head} />
+    {pies.map((p, index) => <Demo key={index} name={p.name} path={p.path} />)}
   </Page>;
 }
