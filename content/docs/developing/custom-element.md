@@ -130,7 +130,7 @@ class MyPie extends HTMLElement {
 A PIE should emit the following events:
 
 
-### `pie.register` (required) TODO: -> `register`
+### `register-pie` 
 
 A PIE should emit this event when the Custom Element is connected in the DOM. This event is handled by the PIE Player which will then set the `model` and `session` properties on the element.
 

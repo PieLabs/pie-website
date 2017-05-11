@@ -51,6 +51,10 @@ The pies can use the session to store session related data like the order of opt
     .catch(e => console.error(e));
 ```
 
+#### `elementModels(m : [{}, ...]) : Promise<[]>`
+
+Sets the element models. TODO: more info...
+
 ####  `set controller`
 
 Set the controller. The controller must have the following api: 
