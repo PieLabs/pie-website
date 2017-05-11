@@ -20,6 +20,10 @@ export default (props) => {
   const { bottom, bigSection, featuresSection } = styles;
   return <Page { ...props }>
     <Head head={props.head} />
-    {pies.map((p, index) => <Demo key={index} name={p.name} path={p.path} />)}
+    {
+      pies.map((p, index) => 
+        <Demo key={index} { ...p } />
+      )
+    }
   </Page>;
 }

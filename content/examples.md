@@ -9,4 +9,7 @@ pies:
     path: /assets/pies/corespring-choice
     title: Choice Interaction
     description: This is a choice interaction
+  - name: corespring-match
+    path: /assets/pies/corespring-match
+    title: Match Interaction
 ---

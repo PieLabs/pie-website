@@ -79,7 +79,6 @@ export default class Demo extends React.Component {
         return controller.model(config.models[0], this._session, { mode: 'gather' })
       })
       .then(uiModel => {
-        console.log('uiModel', uiModel);
         this.renderEl.session = this._session;
         this.renderEl.model = uiModel;
       })
@@ -94,7 +93,7 @@ export default class Demo extends React.Component {
   }
 
   render() {
-    const { path, name } = this.props;
+    const { path, name, title, description } = this.props;
     const ConfigureTag = `${name}-configure`;
     const RenderTag = name;
 
@@ -106,6 +105,8 @@ export default class Demo extends React.Component {
     };
 
     return <div>
+      <h3>{title}</h3>
+      <p>{description}</p>
       <ConfigureTag style={styles}></ConfigureTag>
       <div style={styles}>
         <Toolbar onEnvChanged={this.onEnvChanged.bind(this)}/>
