@@ -36,7 +36,7 @@ The example below renders a single `pie-player` with a client side controller. U
 
 ```html 
 <script src="pie-view.js"></script>
-<script src="pie-controller.js"></script>
+<script src="pie-controllers.js"></script>
 <!-- we declare a `pie-player` and within that tag is the markup from `index.html` -->
 <pie-player>
   <my-pie pie-id="1"></my-pie>
