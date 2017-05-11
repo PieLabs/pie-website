@@ -9,6 +9,13 @@ It should be defined in an ES6 module which is included as the main entry point 
 
 
 ```javascript
+
+/**
+ * A custom element that renders a button. 
+ * Once you click the button the session is updated and the message changes.
+ * model: { clickedMsg: "You have clicked", notClickedMsg: "Click Me"}
+ * session: { response: { clicked: true|false } } 
+ */
 export default class MyPie extends HTMLElement {
 
   constructor() {
@@ -20,36 +27,53 @@ export default class MyPie extends HTMLElement {
 
   set model(m) {
     this._model = m;
-  }
-
-  get session() {
-    return this._session;
+    this.dispatchEvent(new CustomEvent('model-set', {
+      bubbles: true,
+      detail: {
+        hasModel: this._model !== null 
+      }
+    }));
+    this._render();
   }
 
   set session(s) {
     this._session = s;
+    this._render();
   }
 
-  set env(e) {
-    this._env = e;
+  _render(){
+    if(this._session && this._model){
+      const { clicked } = (this._session.response || {});
+      const msg = clicked ? this._model.clickedMsg : this._model.notClickedMsg;
+      this.querySelector('button').textContent = msg;
+    }
   }
 
   connectedCallback() {
+    
+    this.innerHTML = `<button>Click me</button>`;
+
+    this.querySelector('button').addEventListener('click', e => {
+      this._session.response = this._session.response || {}
+      this._session.response.clicked = true;
+      this._render();
+      this.dispatchEvent(new CustomEvent('model-updated', {
+        bubbles: true,
+        detail: {
+          complete: true 
+        }
+      }));
+    });
     // the pie-player will capture this event and set the model and session properties
     this.dispatchEvent(new CustomEvent('pie.register', { bubbles: true }));   
   }
 }
 ```
 
+The Element receives 2 properties: `model` and `session`, that the `pie` instance uses to build a UI.
 
-The Element receives properties that are set by the PIE Player and may emit events to communicate out to the Player.
 
-
-### Reserved Element Properties
-
-As a developer of a PIE, you can define the configuration model for your Custom Element and the properties it will receive. However the two properties `model` and `session` are reserved. They will be set by the `pie-player` in the client and should not be defined as part of your configuration model.
-
-#### `model`
+#### `set model`
 
 If you provide a controller with your PIE, then your controller will be called to set this property on your Custom Element, see [Controller](./controller.md).
 
@@ -59,7 +83,7 @@ This allows you to set the model to an appropriate state based on the current se
 
 
 
-#### `session`
+#### `set session`
 
 The session property represents the state of a user's interaction with the PIE. If a setter is provided in the Custom Element this property will be set by the PIE player when loading an assessment item. 
 
@@ -67,7 +91,7 @@ The Element can modify this object and should emit a `sessionChanged` event (see
 
 As with `model` the structure of this data is entirely up to the developer of the PIE that uses it.
 
-#### `env`
+#### `set env`
 
 The `env` property contains data that reflect the current user context. Any updates do these properties will be passed to the Custom Element by setting this property.
 
@@ -101,47 +125,41 @@ class MyPie extends HTMLElement {
 ```
 
 
-
 ### Events
 
 A PIE should emit the following events:
 
 
-### `pie.register` Event (required)
+### `pie.register` (required) TODO: -> `register`
 
 A PIE should emit this event when the Custom Element is connected in the DOM. This event is handled by the PIE Player which will then set the `model` and `session` properties on the element.
 
 
-###  `pie.responseComplete` (optional)
+###  `response-changed` (optional)
 
-This event should be emitted if the data captured from a user (stored in `session` property) is sufficient to consider the response complete.
+This event should be dispatched if the data captured from a user (in `session`) has changed. 
 
-For example, if you had a had a multi choice question that required the student to pick at least 3 choices you would emit this event when when 3 choices had been selected.
+#### `{ detail: { complete }` - whether the session is deemed to be complete.
 
+Set this to describe whether the response is now complete. For example, if you had a had a multi choice question that required the student to pick at least 3 choices you would emit this event when when 3 choices had been selected.
 
 ```javascript
-    var event = new CustomEvent('pie.responseComplete', {
-      bubbles: true
+    var event = new CustomEvent('response-changed', {
+      bubbles: true,
+      detail: {
+        complete: this.isComplete()
+      }
     });
 
     this.dispatchEvent(event);
 ```
 
-###  `pie.responseChanged`  (optional)
+### `model-set` (optional)
 
-This event should be emitted when the user respose has been modified, but not necessarily completed. 
-Typically, the system hosting the Item using your PIE would be expected to persist the modified session upon receving this event.
+This event should be dispatched when the `model` has been set.
 
-```javascript
-    var event = new CustomEvent('pie.responseChanged', {
-      bubbles: true
-    });
-
-    this.dispatchEvent(event);
-```
-
-
-
+#### `{ detail: { hasModel } }` 
+Set this to true if the model is not undefined. `hasModel = this._model !== undefined`.
 
 ### Brower Support
 
