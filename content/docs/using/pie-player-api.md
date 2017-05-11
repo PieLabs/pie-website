@@ -64,7 +64,7 @@ Set the controller. The controller must have the following api:
 player.controller = { model: () => { /*...*/}, outcome: () => {/*...*/} }; 
 ```
  
-#### Method: `outcome() : Promise<outcome>` 
+#### `outcome() : Promise<outcome>` 
 
 Return the outcome for the the currently rendered `sessions`.
 
@@ -104,25 +104,56 @@ player.status()
 .catch(e => console.error(e));
 ```
 
+#### `reset(predicate) : Promise<?>` 
+Reset the `sessions` so that any user responses have been removed (other data will be retained). For each object in the `sessions` array, remove the `response` field.
 
-#### `reset() : Promise<?>` 
-Reset the `sessions` so that they are like new. For each object in the `sessions` array, remove all properties except `id`.
+##### @param `predicate : (sessionsUpdate: []) => Promise<[]>`
+This method receives the proposed update to the sessions. It allows the changes to be checked before they are applied. The promise resolves with the sessions array with any additional updates. If the promise rejects then no changes are made.
 
-> TODO: Polish flow here, we only want to complete the reset if the context is happy to proceed. So either: `reset() : Promise<updatedSessions>`, that can then be checked or `reset(predicate) : Promise<?>`, where predicate checks the changes to make sure they are ok for the outer context.
 
 ```javascript
-    player.reset()
+
+    const updateValid = (sessions) => {
+      //... do some validation..
+    }
+
+    const reset = (updatedSessions) => {
+      return new Promise((resolve, reject) => {
+        if(updateValid(updatedSessions)){
+          resolve(updatedSessions);
+        } else {
+          reject(new Error('not a valid update'));
+        }
+      };
+
+    player.reset(resetPredicate)
       .then(() => console.log('session has been reset'))
       .catch(e => console.error(e))
 ```
 
-#### `resetResponse() : Promise<?>` 
+#### `resetResponse(predicate) : Promise<?>` 
 Reset the `sessions` so that any user responses have been removed (other data will be retained). For each object in the `sessions` array, remove the `response` field.
 
-> TODO: Polish flow here, we only want to complete the reset if the context is happy to proceed. So either: `resetResponse() : Promise<updatedSessions>`, that can then be checked or `resetResponse(predicate) : Promise<?>`, where predicate checks the changes to make sure they are ok for the outer context.
+##### @param `predicate : (sessionsUpdate: []) => Promise<[]>`
+This method receives the proposed update to the sessions. It allows the changes to be checked before they are applied. The promise resolves with the sessions array with any additional updates. If the promise rejects then no changes are made.
+
 
 ```javascript
-    player.reset()
+
+    const updateValid = (sessions) => {
+      //... do some validation..
+    }
+
+    const resetPredicate = (updatedSessions) => {
+      return new Promise((resolve, reject) => {
+        if(updateValid(updatedSessions)){
+          resolve(updatedSessions);
+        } else {
+          reject(new Error('not a valid update'));
+        }
+      };
+
+    player.resetResponse(resetPredicate)
       .then(() => console.log('session has been reset'))
       .catch(e => console.error(e))
 ```
