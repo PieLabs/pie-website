@@ -3,7 +3,7 @@ title: pie framework
 layout: Examples
 main: 
   title: Examples
-  subtitle: Make a thing, have a pie.
+  subtitle: Here you will find examples of different PIE interactions.
 pies:
   - name: corespring-choice
     path: /assets/pies/corespring-choice

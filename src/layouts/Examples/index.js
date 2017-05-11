@@ -17,9 +17,13 @@ export default (props) => {
     pies
   } = props.head;
 
+  console.log('propz', main);
+
   const { bottom, bigSection, featuresSection } = styles;
   return <Page { ...props }>
     <Head head={props.head} />
+    <h1>{main.title}</h1>
+    <p>{main.subtitle}</p>
     {
       pies.map((p, index) => 
         <Demo key={index} { ...p } />
