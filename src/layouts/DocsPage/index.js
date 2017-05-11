@@ -3,9 +3,8 @@ import React, { PropTypes } from 'react';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import Helmet from 'react-helmet';
-import styles from './index.css';
 import { Link } from "phenomic"
-
+import styles from './index.css';
 
 export default function DocsPage(props) {
   const { children, head, body } = props;
@@ -37,8 +36,8 @@ export default function DocsPage(props) {
                   <li><Link to="/docs/using/defining-items">Defning Items</Link></li>
                   <li><Link to="/docs/using/packaging-items">Packaging Items</Link></li>
                   <li><Link to="/docs/using/rendering-items">Rendering Items</Link></li>
-                  <li><Link to="/docs/using/pie-player">PIE Player Api</Link></li>
-                 </ul>    
+                  <li><Link to="/docs/using/pie-player-api">PIE Player Api</Link></li>
+                </ul>
                 <li>PIE Development</li>
                 <ul>
                   <li><Link to="/docs/developing/summary">Summary</Link></li>
@@ -48,28 +47,28 @@ export default function DocsPage(props) {
                   <li><Link to="/docs/developing/packaging">Packaging</Link></li>
                   <li><Link to="/docs/developing/environment">Environment</Link></li>
                   <li><Link to="/docs/developing/development-tutorial">Development Tutorial</Link></li>
-                </ul> 
+                </ul>
                 <li>Authoring Development</li>
                 <ul>
                   <li><Link to="/docs/authoring/authoring">Authoring</Link></li>
                   <li><Link to="/docs/authoring/uploader">Uploader Api</Link></li>
-                </ul>                                            
+                </ul>
               </ul>
               <ul>
                 <li><Link to="/docs/open-source-pies">Open Source PIEs</Link></li>
               </ul>
               <ul>
                 <li><Link to="/docs/design-decisions">Design Decisions</Link></li>
-              </ul> 
+              </ul>
             </aside>
-            </section>
-            <section className={docContent}>
-              <div dangerouslySetInnerHTML={{ __html: body }}>
-              </div>
-            </section>
-          </div>
-          <Footer />
+          </section>
+          <section className={docContent}>
+            <div dangerouslySetInnerHTML={{ __html: body }}>
+            </div>
+          </section>
         </div>
+        <Footer />
       </div>
-    </div>;
+    </div>
+  </div>;
 } 
