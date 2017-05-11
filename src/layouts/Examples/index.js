@@ -17,8 +17,6 @@ export default (props) => {
     pies
   } = props.head;
 
-  console.log('propz', main);
-
   const { bottom, bigSection, featuresSection } = styles;
   return <Page { ...props }>
     <Head head={props.head} />
