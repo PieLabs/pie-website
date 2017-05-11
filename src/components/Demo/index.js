@@ -95,9 +95,15 @@ export default class Demo extends React.Component {
     const { path, name } = this.props;
     const ConfigureTag = `${name}-configure`;
     const RenderTag = name;
+    const styles = {
+      width: '50%',
+      'vertical-align': 'top',
+      display: 'inline-block',
+      padding: '10px'
+    };
     return <div>
-      <ConfigureTag ></ConfigureTag >
-      <RenderTag></RenderTag>
+      <ConfigureTag style={styles}></ConfigureTag >
+      <RenderTag style={styles}></RenderTag>
     </div >;
   }
 
