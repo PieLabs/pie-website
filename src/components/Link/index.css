@@ -7,6 +7,7 @@
   &:focus {
     color: var(--color-primary-dark); 
     opacity: 1;
+    text-decoration: none; 
   }
 }
 
@@ -17,4 +18,11 @@
   padding: 0;
   margin: 0;
   text-decoration: none; 
+  &:hover,
+  &:focus {
+    color: var(--color-primary); 
+    opacity: 1;
+    text-decoration: none; 
+    border-bottom: solid 1px var(--color-primary-dark);
+  }  
 }
