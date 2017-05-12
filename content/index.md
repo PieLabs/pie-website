@@ -12,8 +12,4 @@ developers:
   text: For Developers
   subtext: The PIE Framework is an Open Source non-proprietary  framework that uses web development best practices to allow you to easily create re-usable question types with advanced UI and scoring behavior, and allows you to distribute these question types so they can be used on any system.
   url: assets/dev.png
- author: 
-  text: Plug and Play Authoring and Rendering
-  subtext: Question types - including the user interface for authoring them - are independent plug-and-play components. Question types developed for any PIE Compatible system will work on any other system.
-  url: assets/block1.png 
 ---
