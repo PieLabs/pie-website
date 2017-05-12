@@ -17,9 +17,7 @@ function Header(props) {
 
     if (matches) {
       return <div className={links}>
-        <Link to="/about">About</Link>
         <Link to="/docs">Docs</Link>
-        <Link to="/faq">FAQ</Link>
       </div>;
     } else {
 
@@ -27,7 +25,6 @@ function Header(props) {
         position="topRight" menuRipple>
         <MenuItem value='/mission' caption='Mission' />
         <MenuItem value='/team' caption='Team' />
-        <MenuItem value='/faq' caption='FAQ' />
       </IconMenu>;
     }
   }

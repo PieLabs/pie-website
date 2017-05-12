@@ -4,7 +4,7 @@
   padding: 20px;
   padding-bottom: 60px;
   border-top: solid 1px color( var(--color-primary-dark) a(10%));
-  color: var(--color-primary-light);
+  color: var(--color-primary-dark);
   width: 100%;
 }
 
