@@ -14,6 +14,7 @@ import FontIcon from 'react-toolbox/lib/font_icon';
 
 export default (props) => {
 
+
   const {
     bottomLinkText,
     main,
@@ -31,7 +32,12 @@ export default (props) => {
         <Main {...main}/>
       </section>
       <div className={featuresSection}>
+      <FeatureRow features={features}/>
       </div>
+      <Block {...publishers} image={'right'}/>
+      <Block {...developers}/>
+      
+
 
   </Page>;
 }
