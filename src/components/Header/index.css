@@ -24,10 +24,14 @@
 
 .brandHolder{
   flex: 1;
-  &:hover {
+}
+
+.brandHolder a {
+    &:hover {
     text-decoration: none;
   }
 }
+
 
 
 .nav {
