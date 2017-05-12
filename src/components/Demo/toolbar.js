@@ -34,16 +34,20 @@ export default class Toolbar extends React.Component {
           Evaluating Response
         </label>
       </div>
-      <div>
-        <label>
-          <input type="radio" value='en-US' onChange={this.onChange.bind(this, 'locale')} checked={this.state.locale === 'en-US'}/>
-          English
-        </label>
-        <label>
-          <input type="radio" value='zh-CN' onChange={this.onChange.bind(this, 'locale')} checked={this.state.locale === 'zh-CN'}/>
-          Chinese
-        </label>
-      </div>
+      {
+        (this.props.locale === true) && (
+          <div>
+            <label>
+              <input type="radio" value='en-US' onChange={this.onChange.bind(this, 'locale')} checked={this.state.locale === 'en-US'}/>
+              English
+            </label>
+            <label>
+              <input type="radio" value='zh-CN' onChange={this.onChange.bind(this, 'locale')} checked={this.state.locale === 'zh-CN'}/>
+              Chinese
+            </label>
+          </div>
+        )
+      }
     </div>;
   }
 }
