@@ -5,6 +5,7 @@ import Header from '../../components/Header';
 import Helmet from 'react-helmet';
 import { Link } from "phenomic"
 import styles from './index.css';
+import Head from '../Head'
 
 export default function DocsPage(props) {
   const { children, head, body } = props;
@@ -16,10 +17,7 @@ export default function DocsPage(props) {
   ]; // TODO.. add og fields etc..
 
   return <div>
-    <Helmet title={metaTitle} >
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-        rel="stylesheet" />
-    </Helmet>
+    <Head head={props.head} />
     <Header layout={head.layout} />
     <div className={holder}>
       <div className={contentHolder}>
