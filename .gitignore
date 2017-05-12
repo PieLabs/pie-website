@@ -8,4 +8,4 @@ dist
 # packed pies
 content/assets/pies/*/.pie
 content/assets/pies/*/*.js
-content/assets/pies/example.html
+content/assets/pies/*/example.html

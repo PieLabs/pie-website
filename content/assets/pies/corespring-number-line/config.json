@@ -3,7 +3,7 @@
     "en-US"
   ],
   "elements": {
-    "corespring-number-line": "github:pieelements/corespring-number-line"
+    "corespring-number-line": "github:pieelements/corespring-number-line#feature/configure-panel"
   },
   "models": [
     {

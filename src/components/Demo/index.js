@@ -72,7 +72,6 @@ export default class Demo extends React.Component {
           this._loadConfig(name)]);
       })
       .then(([d, config]) => {
-
         this._configElement = ReactDOM.findDOMNode(this).querySelector(`${name}-configure`);
         this._configElement.model = config.models[0];
         this._configElement.addEventListener('model.updated', e => {
@@ -82,7 +81,7 @@ export default class Demo extends React.Component {
       })
       .then(() => {
         const config = this._loadedConfig;
-        this._controller = window['pie-controllers'][name];
+        this._controller = window[`pie-controller-${name}`][name];
         return this._controller.model(config.models[0], this._session, this._env)
       })
       .then(uiModel => {

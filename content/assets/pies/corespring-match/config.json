@@ -1,6 +1,6 @@
 {
   "elements": {
-    "corespring-match": "github:pieelements/corespring-match"
+    "corespring-match": "github:pieelements/corespring-match#feature/configure-poc"
   },
   "models": [
     {
