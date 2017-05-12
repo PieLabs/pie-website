@@ -56,6 +56,7 @@ export default class Demo extends React.Component {
 
   componentDidMount() {
     this._session = {};
+    this._env = { mode: 'gather' };
 
     ReactDOM.findDOMNode(this).addEventListener('pie.register', e => {
       this.renderEl = e.target;
@@ -71,12 +72,18 @@ export default class Demo extends React.Component {
           this._loadConfig(name)]);
       })
       .then(([d, config]) => {
-        ReactDOM.findDOMNode(this).querySelector(`${name}-configure`).model = config.models[0];
+
+        this._configElement = ReactDOM.findDOMNode(this).querySelector(`${name}-configure`);
+        this._configElement.model = config.models[0];
+        this._configElement.addEventListener('model.updated', e => {
+          this._loadedConfig.models[0] = e.detail.update;
+          this._updatePlayer();
+        })
       })
       .then(() => {
         const config = this._loadedConfig;
-        const controller = window['pie-controllers'][name];
-        return controller.model(config.models[0], this._session, { mode: 'gather' })
+        this._controller = window['pie-controllers'][name];
+        return this._controller.model(config.models[0], this._session, this._env)
       })
       .then(uiModel => {
         this.renderEl.session = this._session;
@@ -87,9 +94,16 @@ export default class Demo extends React.Component {
       });
   }
 
+  _updatePlayer() {
+    this._controller.model(this._loadedConfig.models[0], this._session, this._env)
+      .then(m => {
+        this.renderEl.model = m;
+      });
+  }
+
   onEnvChanged(env) {
-    // how to set the env?
-    this.renderEl.env = env;
+    this._env = env;
+    this._updatePlayer();
   }
 
   render() {
@@ -109,7 +123,7 @@ export default class Demo extends React.Component {
       <p>{description}</p>
       <ConfigureTag style={styles}></ConfigureTag>
       <div style={styles}>
-        <Toolbar onEnvChanged={this.onEnvChanged.bind(this)}/>
+        <Toolbar onEnvChanged={this.onEnvChanged.bind(this)} />
         <RenderTag></RenderTag>
       </div>
     </div>;
