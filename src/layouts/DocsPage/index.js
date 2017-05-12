@@ -44,7 +44,7 @@ export default function DocsPage(props) {
                   <li><Link to="/docs/developing/controller">Controller</Link></li>
                   <li><Link to="/docs/developing/packaging">Packaging</Link></li>
                   <li><Link to="/docs/developing/environment">Environment</Link></li>
-                  <li><Link to="/docs/developing/development-tutorial">Development Tutorial</Link></li>
+                  <li><Link to="/docs/developing/tutorial/development-tutorial">Development Tutorial</Link></li>
                 </ul>
                 <li>Authoring Development</li>
                 <ul>
