@@ -5,6 +5,8 @@ import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
+import styles from './toolbar.css';
+
 export default class Toolbar extends React.Component {
   constructor(props) {
     super(props);
@@ -46,7 +48,8 @@ export default class Toolbar extends React.Component {
 
     return <MuiThemeProvider muiTheme={muiTheme}>
       <div className="toolbar">
-        <div>
+        <div className={styles['toolbar-group']}>
+          <div className={styles['toolbar-group-label']}>Mode:</div>
           <RadioButtonGroup name="mode" onChange={this.onChange.bind(this, 'mode')} defaultSelected="gather">
             <RadioButton style={radioStyle(200)} value="gather" label="Answering question"/>
             <RadioButton style={radioStyle(250)} value="evaluate" label="Evaluating Response"/>
@@ -54,7 +57,8 @@ export default class Toolbar extends React.Component {
         </div>
         {
           showLangs ? (
-            <div>
+        <div className={styles['toolbar-group']}>
+              <div className={styles['toolbar-group-label']}>Language:</div>
               <RadioButtonGroup name="locale" onChange={this.onChange.bind(this, 'locale')} defaultSelected="en-US">
                 {
                   langs.map((lang) => <RadioButton style={radioStyle(120)} key={lang} value={lang} label={labels[lang]} />)
