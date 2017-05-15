@@ -137,10 +137,12 @@
   },
   "dependencies": {
     "email-validator": "^1.0.7",
+    "material-ui": "^0.18.1",
     "react-icons": "^2.2.3",
     "react-responsive": "^1.2.7",
     "react-sidebar": "^2.3.2",
     "react-svg-inline": "^1.2.0",
+    "react-tap-event-plugin": "^2.0.1",
     "react-toolbox": "^2.0.0-beta.8"
   }
 }

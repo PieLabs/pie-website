@@ -1,5 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
+
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 export default class Toolbar extends React.Component {
   constructor(props) {
@@ -23,38 +27,43 @@ export default class Toolbar extends React.Component {
   }
 
   render() {
-    const langs = {
+    const { langs } = this.props;
+    const labels = {
       'en-US': 'English',
       'es-ES': 'Spanish',
       'zh-CN': 'Chinese'
     };
-    const showLangs = this.props.langs !== undefined && this.props.langs.length > 0;
 
-    return <div className="toolbar">
-      <div>
-        <label>
-          <input type="radio" value='gather' onChange={this.onChange.bind(this, 'mode')} checked={this.state.mode === 'gather'}/>
-          Answering question
-        </label>
-        <label>
-          <input type="radio" value='evaluate' onChange={this.onChange.bind(this, 'mode')} checked={this.state.mode === 'evaluate'}/>
-          Evaluating Response
-        </label>
-      </div>
-      {
-        showLangs ? (
-          <div>
-          {
-            this.props.langs.map((lang) => {
-              return <label key={`lang-${lang}`}>
-                <input type="radio" value={lang} onChange={this.onChange.bind(this, 'locale')} checked={this.state.locale === lang}/>
-                {langs[lang]}
-              </label>
-            })
-          }
-          </div>
-        ) : <div/>
+    const radioStyle = (width) => { 
+      return {
+        display: 'inline-block',
+        width: `${width}px`
       }
-    </div>;
+    };
+
+    const showLangs = langs !== undefined && langs.length > 0;
+    const muiTheme = getMuiTheme();
+
+    return <MuiThemeProvider muiTheme={muiTheme}>
+      <div className="toolbar">
+        <div>
+          <RadioButtonGroup name="mode" onChange={this.onChange.bind(this, 'mode')} defaultSelected="gather">
+            <RadioButton style={radioStyle(200)} value="gather" label="Answering question"/>
+            <RadioButton style={radioStyle(250)} value="evaluate" label="Evaluating Response"/>
+          </RadioButtonGroup>
+        </div>
+        {
+          showLangs ? (
+            <div>
+              <RadioButtonGroup name="locale" onChange={this.onChange.bind(this, 'locale')} defaultSelected="en-US">
+                {
+                  langs.map((lang) => <RadioButton style={radioStyle(120)} key={lang} value={lang} label={labels[lang]} />)
+                }
+              </RadioButtonGroup>
+            </div>
+          ) : <div/>
+        }
+      </div>
+    </MuiThemeProvider>;
   }
 }
