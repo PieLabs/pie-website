@@ -23,6 +23,13 @@ export default class Toolbar extends React.Component {
   }
 
   render() {
+    const langs = {
+      'en-US': 'English',
+      'es-ES': 'Spanish',
+      'zh-CN': 'Chinese'
+    };
+    const showLangs = this.props.langs !== undefined && this.props.langs.length > 0;
+
     return <div className="toolbar">
       <div>
         <label>
@@ -35,18 +42,18 @@ export default class Toolbar extends React.Component {
         </label>
       </div>
       {
-        (this.props.locale === true) && (
+        showLangs ? (
           <div>
-            <label>
-              <input type="radio" value='en-US' onChange={this.onChange.bind(this, 'locale')} checked={this.state.locale === 'en-US'}/>
-              English
-            </label>
-            <label>
-              <input type="radio" value='zh-CN' onChange={this.onChange.bind(this, 'locale')} checked={this.state.locale === 'zh-CN'}/>
-              Chinese
-            </label>
+          {
+            this.props.langs.map((lang) => {
+              return <label key={`lang-${lang}`}>
+                <input type="radio" value={lang} onChange={this.onChange.bind(this, 'locale')} checked={this.state.locale === lang}/>
+                {langs[lang]}
+              </label>
+            })
+          }
           </div>
-        )
+        ) : <div/>
       }
     </div>;
   }

@@ -106,7 +106,7 @@ export default class Demo extends React.Component {
   }
 
   render() {
-    const { path, name, title, description, locale } = this.props; 
+    const { path, name, title, description, languages } = this.props; 
     const ConfigureTag = `${name}-configure`;
     const RenderTag = name;
 
@@ -122,7 +122,7 @@ export default class Demo extends React.Component {
       <p>{description}</p>
       <ConfigureTag style={styles}></ConfigureTag>
       <div style={styles}>
-        <Toolbar onEnvChanged={this.onEnvChanged.bind(this)} locale={locale} />
+        <Toolbar onEnvChanged={this.onEnvChanged.bind(this)} langs={languages} />
         <RenderTag></RenderTag>
       </div>
     </div>;

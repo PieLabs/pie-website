@@ -9,7 +9,10 @@ pies:
     path: /assets/pies/corespring-choice
     title: Choice Interaction
     description: This is a choice interaction
-    locale: true
+    languages:
+      - en-US
+      - es-ES
+      - zh-CN
   - name: corespring-match
     path: /assets/pies/corespring-match
     title: Match Interaction
