@@ -8,8 +8,10 @@
   lost-column: 1/5;
 }
 
-.image img {
+.image svg {
     width: 50px;
+    fill: var(--color-primary);
+    height: 50px;  
 }
 .description {
   lost-column: 4/5;

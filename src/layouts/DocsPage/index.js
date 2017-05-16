@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 
 import Footer from '../../components/Footer';
+import Head from '../Head'
 import Header from '../../components/Header';
 import Helmet from 'react-helmet';
 import { Link } from "phenomic"
@@ -16,10 +17,7 @@ export default function DocsPage(props) {
   ]; // TODO.. add og fields etc..
 
   return <div>
-    <Helmet title={metaTitle} >
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-        rel="stylesheet" />
-    </Helmet>
+    <Head head={props.head} />
     <Header layout={head.layout} />
     <div className={holder}>
       <div className={contentHolder}>
@@ -46,7 +44,7 @@ export default function DocsPage(props) {
                   <li><Link to="/docs/developing/controller">Controller</Link></li>
                   <li><Link to="/docs/developing/packaging">Packaging</Link></li>
                   <li><Link to="/docs/developing/environment">Environment</Link></li>
-                  <li><Link to="/docs/developing/development-tutorial">Development Tutorial</Link></li>
+                  <li><Link to="/docs/developing/tutorial/development-tutorial">Development Tutorial</Link></li>
                 </ul>
                 <li>Authoring Development</li>
                 <ul>

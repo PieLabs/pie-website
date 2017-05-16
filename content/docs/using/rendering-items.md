@@ -6,50 +6,37 @@ An Assessment Item packed by the Packaging Tool may have some or all of the foll
 
 | File              | Description                                                        |
 |-------------------|--------------------------------------------------------------------|
-| pie.js            | Single file containing all code and config to render the item      |
 | config.json       | JSON data that defines the questions & interaction PIEs in an item |
 | index.html        | Markup for adding the PIEs to html document                        |
 | pie-view.js       | Assembled Javascript for rendering the UI for the Assessment Item  |
 | pie-controller.js | Packaged controller code for the PIEs defined in the config        |
-
-
-
+| pie-configure.js  | Packaged configure code (if defined) for the PIEs defined in the config        |
+| pie-item.js       | Single file containing all code and config to render the item  (`--includeComplete`)    |
 
 
 ## Simple Usage - Client Side Only
 
-The simplest way to load a PIE-formatted item is to use the `pie.js` file. This file includes everything needed to render the item in a user's browser. 
+The simplest way to preview a `pie` item is to use the `pie-item.js` file that is built when you run `pie pack --includeComplete`. This defines a custom element that contains the `pie-player` and the item's markup and config. 
 
 Example:
 ```html
-
-<!-- all the configuration, javascript and html for rendering 
-the assessment item is bundled in pie.js -->
-<div id="player-holder"></div>
-<script src="pie.js" type="text/javascript"></script>
-<script type="text/javascript">
-  env = {mode: 'gather'};
-  session = [];
-  var player = pie.bootstrapPlayer('#player-holder', env, session);
-</script>
-
+<script src="pie-item.js" type="text/javascript"></script>
+<pie-item></pie-item>
 ```
 
-For complete documentation on interacting with the `pie-player` element, see the [PIE Player API](api/pie-player.md)
-
+However this view doesn't provide any control over the player, it's really just so you can preview.
 
 ## Advanced & Server-Side Usage
 
-For finer control over how to use the PIE-formatted assessment item, or to use it in a secure-testing environment where data, including correct-responses, are not sent to the client you can use the other files in a packaged item: `pie-view.js` and `pie-controller.js`
+For finer control over how to use the `pie` item, or to use it in a secure-testing environment where data, including correct-responses, are not sent to the client you can use the other files in a packaged item: `pie-view.js` and `pie-controller.js`
 
 ### Client Side Example
-
 
 The example below renders a single `pie-player` with a client side controller. Using this approach gives you finer grained control over initialization, but all the data for the config is downloaded to the browser. 
 
 ```html 
 <script src="pie-view.js"></script>
-<script src="pie-controller.js"></script>
+<script src="pie-controllers.js"></script>
 <!-- we declare a `pie-player` and within that tag is the markup from `index.html` -->
 <pie-player>
   <my-pie pie-id="1"></my-pie>
@@ -57,28 +44,26 @@ The example below renders a single `pie-player` with a client side controller. U
 <script type="text/javascript">
   env = {mode: 'view'};
   session = [];
-  function loadJson(path){
-    return new Promise((function(resolve, reject){
+  const loadJson = (path) => new Promise((resolve, reject) => {
       //load the json here ...
-    }));
-  }
-  /** listen for the `pie.player-ready` event */  
-  document.addEventListener('pie.player-ready', function(event){
-    loadJson('config.json').then(config => {
-      var player = event.target;
-      player.env = env;
-      player.session = session;
-      /** 
-       * instantiate a PieController and assign it to the `pie-player`. 
-       * `pie.controllerMap` is where to find the controller map logic.
-       */
-      player.controller = new pie.PieController(config, pie.controllerMap);
-    }).catch(e => throw e);
+  });
+ 
+  player.addEventListener('ready', function(event){
+    loadJson('config.json')
+      .then(config => { 
+         /** 
+         * instantiate a PieController and assign it to the `pie-player`. 
+         * `pie.controllerMap` is where to find the controller map logic.
+         */
+         player.controller = new pie.PieController(config, pie.controllerMap);
+      })
+      .then(() => player.env(env))
+      .then(() => player.sessions(sessions))
+      .catch(e => console.error(e));
   });
 </script>
 
 ```
-
 
 ### Server Side Example
 
@@ -116,22 +101,34 @@ The example below renders a single `pie-player` with a remote controller.
       //load the json here ...
     }));
   }
-  /** listen for the `pie.player-ready` event */  
-  document.addEventListener('pie.player-ready', function(event){
 
-      var player = event.target;
-      player.env = env;
-      player.session = session;
-      /** 
-       * instantiate a PieController and assign it to the `pie-player`. 
-       */
-      player.controller = new PieRemoteController(endpoints);
+  
+  player.addEventListener('ready', function(event){
+    loadJson('config.json')
+      .then(config => { 
+
+        /* someendpoints that our controller can call with sessions/env */ 
+        const endpoints = {
+          model: {
+            method: 'POST',
+            path: '/model'
+          },
+          outcome: {
+            method: 'POST',
+            path: '/outcome'
+          }
+        }
+
+        player.controller = new RemoteController(endpoints);
+      })
+      .then(() => player.env(env))
+      .then(() => player.sessions(sessions))
+      .catch(e => console.error(e));
   });
 </script>
 ```
 
-
-Below is an example of a possible server implementation running as a commonjs node module:
+Below is an example of a simple server implementation running as a commonjs node module:
 
 ```javascript
 const http = require('http');

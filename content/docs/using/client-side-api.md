@@ -1,5 +1,7 @@
 # Client Side API
 
+### IGNORE THIS PAGE! TO BE REMOVED.
+
 The `pie-player` element and the `_pie_controller` object from `controller.js` provide APIs that can be used to work with an Assessment Item.
 
 > the `controller.js` can also be loaded in the 
