@@ -2,6 +2,10 @@
   display: flex;
 }
 
+.hr {
+  margin: 10px 0 10px 0;
+}
+
 .configure{
   flex: 1;
   padding-right: 10px;

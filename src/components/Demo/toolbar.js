@@ -1,10 +1,7 @@
+import { RadioButton, RadioGroup } from 'react-toolbox/lib/radio';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
-
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-
 import styles from './toolbar.css';
 
 export default class Toolbar extends React.Component {
@@ -28,6 +25,19 @@ export default class Toolbar extends React.Component {
     return this.state;
   }
 
+  onChangeMode(m) {
+    console.log('onChamgeMode:', m);
+    this.setState({ mode: m }, () => {
+      this.props.onEnvChanged(this.state);
+    })
+  }
+
+  onChangeLang(l) {
+    this.setState({ locale: l }, () => {
+      this.props.onEnvChanged(this.state);
+    });
+  }
+
   render() {
     const { langs } = this.props;
     const labels = {
@@ -36,38 +46,63 @@ export default class Toolbar extends React.Component {
       'zh-CN': 'Chinese'
     };
 
-    const radioStyle = (width) => { 
-      return {
-        display: 'inline-block',
-        width: `${width}px`
-      }
-    };
-
     const showLangs = langs !== undefined && langs.length > 0;
-    const muiTheme = getMuiTheme();
 
-    return <MuiThemeProvider muiTheme={muiTheme}>
-      <div className="toolbar">
-        <div className={styles['toolbar-group']}>
-          <div className={styles['toolbar-group-label']}>Mode:</div>
-          <RadioButtonGroup name="mode" onChange={this.onChange.bind(this, 'mode')} defaultSelected="gather">
-            <RadioButton style={radioStyle(200)} value="gather" label="Answering question"/>
-            <RadioButton style={radioStyle(250)} value="evaluate" label="Evaluating Response"/>
-          </RadioButtonGroup>
-        </div>
-        {
-          showLangs ? (
-        <div className={styles['toolbar-group']}>
-              <div className={styles['toolbar-group-label']}>Language:</div>
-              <RadioButtonGroup name="locale" onChange={this.onChange.bind(this, 'locale')} defaultSelected="en-US">
-                {
-                  langs.map((lang) => <RadioButton style={radioStyle(120)} key={lang} value={lang} label={labels[lang]} />)
-                }
-              </RadioButtonGroup>
-            </div>
-          ) : <div/>
-        }
-      </div>
-    </MuiThemeProvider>;
+    return <div className={styles.root}>
+      <Mode
+        currentMode={this.env.mode}
+        onChangeMode={this.onChangeMode.bind(this)}
+        opts={[
+          { value: 'gather', label: 'Answering question' },
+          { value: 'evaluate', label: 'Evaluating response' }]} />
+
+      {showLangs && <Langs
+        onChangeLang={this.onChangeLang.bind(this)}
+        currentLang={this.env.locale}
+        langs={langs} />}
+    </div>;
   }
+}
+
+const Mode = (props) => <div className={styles.mode}>
+  <Label>Mode</Label>
+  {props.opts.map((o, index) => {
+    return <ModeButton
+      {...o}
+      key={index}
+      currentMode={props.currentMode} onChangeMode={props.onChangeMode} />
+  })
+  }</div>;
+
+
+const Label = (props) => <span className={styles.label}>{props.children}</span>
+
+const ModeButton = (props) => <RadioButton
+  className={styles.radioButton}
+  value={props.value}
+  label={props.label}
+  onChange={props.onChangeMode.bind(null, props.value)}
+  checked={props.currentMode === props.value} />;
+
+const Langs = (props) => {
+
+  const labels = {
+    'en-US': 'English',
+    'es-ES': 'Spanish',
+    'zh-CN': 'Chinese'
+  };
+
+  const { langs, onChangeLang, currentLang } = props;
+
+  return <div className={styles.langs}>
+    <Label>Language</Label>
+    {langs.map((lang) => <RadioButton
+      key={lang}
+      className={styles.radioButton}
+      value={lang}
+      checked={currentLang === lang}
+      onChange={onChangeLang.bind(null, lang)}
+      label={labels[lang]} />)
+    }
+  </div>;
 }

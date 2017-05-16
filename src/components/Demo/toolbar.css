@@ -1,3 +1,28 @@
+.radioButton {
+  padding-left: 10px;
+  padding-right: 10px;
+  cursor: pointer;
+}
+
+.common {
+  display: flex;
+  flex-direction: row; 
+  width: 100%;
+}
+
+.label{
+  width: 100px;
+  padding-right: 0px;
+}
+
+.mode {
+  composes: common;
+}
+
+.langs{
+  composes: common;
+}
+
 .toolbar-group {
   background: #e6e6e6;
   padding: 5px 10px;

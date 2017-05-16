@@ -95,6 +95,7 @@ export default class Demo extends React.Component {
       </div>
       <div className={styles.render}>
         <Toolbar onEnvChanged={this.onEnvChanged.bind(this)} langs={config.langs} />
+        <hr className={styles.hr} />
         <RenderTag></RenderTag>
       </div>
     </div>;
