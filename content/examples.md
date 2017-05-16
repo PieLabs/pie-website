@@ -9,16 +9,12 @@ pies:
     path: /assets/pies/corespring-choice
     title: Choice Interaction
     description: This is a choice interaction
-    languages:
-      - en-US
-      - es-ES
-      - zh-CN
   - name: corespring-match
     path: /assets/pies/corespring-match
     title: Match Interaction
-    description: This is a match interaction
+    description: The match interaction is super awesome
   - name: corespring-number-line
     path: /assets/pies/corespring-number-line
-    title: Number Line
-    description: This is a number line interaction
+    title: Number Line 
+    description: Num Num
 ---

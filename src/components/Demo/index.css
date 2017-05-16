@@ -1,0 +1,13 @@
+.root{
+  display: flex;
+}
+
+.configure{
+  flex: 1;
+  padding-right: 10px;
+}
+
+.render{
+  flex: 1;
+  padding-left: 10px;
+}

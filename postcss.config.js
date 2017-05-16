@@ -1,32 +1,34 @@
 module.exports = (config) => {
   return [
     // require("stylelint")(),
-  require("postcss-font-magician")({
-          variants: {
-              'Open Sans': {
-                  '300': [],// light
-                  '400': [],// regular
-                  '700': [] // bold
-              },
-              'Source Sans': {
-                  '300': [],// light
-                  '400': [],// regular
-                  '700': [] // bold 
-              },
-              'Source Sans Pro': {
-                  '300': [],// light
-                  '400': [],// regular
-                  '700': [] // bold 
-              }
-          },
-          foundries: ['google']
-      }),
+    require("postcss-font-magician")({
+      variants: {
+        'Open Sans': {
+          '300': [],// light
+          '400': [],// regular
+          '700': [] // bold
+        },
+        'Source Sans': {
+          '300': [],// light
+          '400': [],// regular
+          '700': [] // bold 
+        },
+        'Source Sans Pro': {
+          '300': [],// light
+          '400': [],// regular
+          '700': [] // bold 
+        }
+      },
+      foundries: ['google']
+    }),
     require('lost'),
     require("postcss-cssnext")({
       browsers: "last 2 versions",
       features: {
         customProperties: {
           variables: {
+            'header-height': '70px',
+            'examples-list-width': '300px',
             'color-text': 'black',
             maxWidth: '1200px',
             //'unit': '10px',

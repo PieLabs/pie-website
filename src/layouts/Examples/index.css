@@ -1,0 +1,46 @@
+.panes{
+}
+
+.common{
+  position: fixed;
+  top: var(--header-height);
+  right: 0;
+  bottom: 0;
+}
+
+
+.subtitle{
+  color: grey;
+  display: block;
+  padding-top: 0;
+
+  & span {
+    padding-top: 0;
+    display: block;
+    align-items: center;
+    color: var(--color-primary-grey);
+    font-size: 13px;
+    display: flex;
+    min-height: 48px;
+    padding: 0 16px;
+    position: relative;
+    text-overflow: ellipsis;
+    word-break: inherit;
+    white-space: normal;
+  }
+}
+
+.examples {
+  composes: common;
+  left: 300px;
+  padding: 20px;
+  overflow: auto;
+}
+
+.list {
+  composes: common;
+  left: 0;
+  width: var(--examples-list-width);
+  border-right: solid 1px red;
+  overflow-x: auto;
+}

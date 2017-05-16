@@ -1,7 +1,7 @@
 .header {
   display: flex;
   padding: 0.0em;
-  height: 65px;
+  height: var(--header-height);
   position: fixed;
   top: 0;
   left: 0;
