@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-GIT_DEPLOY_REPO="git@github.com:smashcut/smashcut-public-site.git"
+GIT_DEPLOY_REPO="git@github.com:pielabs/pie-website.git"
 cd dist && \
 $(npm bin)/rimraf .git
 git init && \
