@@ -37,27 +37,27 @@
           "labelHtml": ""
         },
         {
-          "labelHtml": "Greater for Data Set 1"
+          "labelHtml": "Column 1"
         },
         {
-          "labelHtml": "Equal for Both Data Sets"
+          "labelHtml": "Column 2"
         },
         {
-          "labelHtml": "Greater for Data Set 2"
+          "labelHtml": "Column 3"
         }
       ],
       "rows" : [ 
         {
           "id" : "row-1",
-          "labelHtml" : "Mean"
+          "labelHtml" : "Row 1"
         }, 
         {
           "id" : "row-2",
-          "labelHtml" : "Median"
+          "labelHtml" : "Row 1"
         }, 
         {
           "id" : "row-3",
-          "labelHtml" : "Standard Deviation"
+          "labelHtml" : "Row 3"
         }
       ],
       "config": {
