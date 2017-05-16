@@ -17,7 +17,6 @@ function Header(props) {
     if (matches) {
       return <div className={links}>
         <Link to="/docs">Docs</Link>
-        <Link to="/faq">FAQ</Link>
         <Link to="/examples">Examples</Link>
       </div>;
     } else {
