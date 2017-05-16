@@ -30,12 +30,13 @@ module.exports = (config) => {
             'header-height': '70px',
             'examples-list-width': '300px',
             'color-text': 'black',
+            'color-text-mid': 'rgb(117, 117, 117)',
             maxWidth: '1200px',
             //'unit': '10px',
             'color-primary': '#EE4923',
             'color-primary-dark': '#292b2c',
             'color-primary-light': 'white',
-            'color-primary-grey': '#9B9B9B'
+            'color-primary-grey': '#cccccc'
           },
         },
       },

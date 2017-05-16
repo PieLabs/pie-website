@@ -10,7 +10,7 @@
 
 
 .subtitle{
-  color: grey;
+  color: var(--color-text-mid);
   display: block;
   padding-top: 0;
 
@@ -18,7 +18,7 @@
     padding-top: 0;
     display: block;
     align-items: center;
-    color: var(--color-primary-grey);
+    color: var(--color-text-mid);
     font-size: 13px;
     display: flex;
     min-height: 48px;
@@ -41,6 +41,6 @@
   composes: common;
   left: 0;
   width: var(--examples-list-width);
-  border-right: solid 1px red;
+  border-right: solid 1px var(--color-primary-grey);
   overflow-x: auto;
 }

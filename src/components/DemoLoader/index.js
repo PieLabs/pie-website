@@ -107,19 +107,5 @@ export default class DemoLoader extends React.Component {
         <Demo config={config} tag={currentPie} />
       </div>}
     </div>;
-
-    /*if (currentPie) {
-      if (this.state.loaded.find(n => n === currentPie)) {
-        const config = this.state.configs[currentPie];
-        return <Demo
-          config={config}
-          tag={currentPie} />;
-      } else {
-        return <ProgressBar theme={progressBar} mode="indeterminate" />
-      }
-    } else {
-      return <div>DemoLoader</div>;
-    }
-  */
   }
 }
