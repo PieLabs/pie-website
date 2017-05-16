@@ -36,7 +36,11 @@ html {
 
 body {
   color: var(--color-text);
-  font-family: "Source Sans Pro";
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
 }
 
 /*
@@ -108,10 +112,6 @@ h5 {
 a {
   color: inherit;
   text-decoration: none;
-
-  &:hover {
-    text-decoration: underline;
-  }
 }
 
 hr {

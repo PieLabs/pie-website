@@ -2,10 +2,19 @@
   display: inline;
   padding: 4px; 
   margin-left: 10px;
-  text-decoration: none;  
-  &:hover,
-  &:focus {
-    color: var(--color-primary-dark); 
+  text-decoration: none; 
+  transition: background-color linear 100ms; 
+  & a {
+    transition: color linear 100ms; 
+  }
+
+  &:hover {
+
+    & a {
+      color: var(--color-primary-light); 
+    }
+    color: var(--color-primary-light); 
+    background-color: var(--color-primary);
     opacity: 1;
   }
 }
@@ -16,5 +25,7 @@
   border-bottom: solid 1px var(--color-primary);
   padding: 0;
   margin: 0;
+  font-size: 0.9rem;
+  font-weight: 400;
   text-decoration: none; 
 }

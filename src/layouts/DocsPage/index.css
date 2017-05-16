@@ -21,6 +21,19 @@
     padding-left: 1rem;
     flex-wrap: nowrap;
     min-width: 14rem;
+    & li {
+      font-weight: 700;
+      color: var(--color-primary-dark);
+    }
+    
+    & a {
+      color: var(--color-primary-dark);
+      font-weight: 400;
+    }
+
+    & a:hover {
+      color: var(--color-primary);
+    }
 }
 
 .sidebar ul {
