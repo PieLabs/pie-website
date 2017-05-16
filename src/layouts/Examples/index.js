@@ -87,9 +87,7 @@ export default class Examples extends React.Component {
           </List>
         </aside>
         <div className={styles.examples}>
-
           <DemoLoader pies={pies} currentPie={currentPie} />
-          {/*{pies.map((p, index) => <Demo key={index} { ...p } />)}*/}
         </div>
       </div>
     </Root>;

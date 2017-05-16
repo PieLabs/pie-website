@@ -1,5 +1,7 @@
 import Demo from '../Demo';
+import ProgressBar from 'react-toolbox/lib/progress_bar';
 import React from 'react';
+import progressBar from './progress-bar.css';
 import styles from './index.css';
 
 function loadScript(src, done) {
@@ -83,6 +85,7 @@ export default class DemoLoader extends React.Component {
     }
   }
 
+
   render() {
     const { pies, currentPie } = this.props;
 
@@ -93,7 +96,7 @@ export default class DemoLoader extends React.Component {
           config={config}
           tag={currentPie} />;
       } else {
-        return <div>Loading {currentPie}</div>;
+        return <ProgressBar theme={progressBar} mode="indeterminate" />
       }
     } else {
       return <div>DemoLoader</div>;
