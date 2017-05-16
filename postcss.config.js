@@ -3,6 +3,14 @@ module.exports = (config) => {
     // require("stylelint")(),
     require("postcss-font-magician")({
       variants: {
+
+        'Roboto': {
+          '100': [],
+          '200': [],
+          '300': [],
+          '500': [],
+          '700': []
+        },
         'Open Sans': {
           '300': [],// light
           '400': [],// regular

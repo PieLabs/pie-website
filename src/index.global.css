@@ -36,7 +36,9 @@ html {
 
 body {
   color: var(--color-text);
-  font-family: "Source Sans Pro";
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
 }
 
 /*
