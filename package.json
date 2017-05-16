@@ -136,6 +136,7 @@
     "whatwg-fetch": "^0.11.0"
   },
   "dependencies": {
+    "classnames": "^2.2.5",
     "email-validator": "^1.0.7",
     "material-ui": "^0.18.1",
     "react-icons": "^2.2.3",

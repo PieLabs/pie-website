@@ -1,6 +1,7 @@
 import Demo from '../Demo';
 import ProgressBar from 'react-toolbox/lib/progress_bar';
 import React from 'react';
+import classNames from 'classnames';
 import progressBar from './progress-bar.css';
 import styles from './index.css';
 
@@ -89,7 +90,25 @@ export default class DemoLoader extends React.Component {
   render() {
     const { pies, currentPie } = this.props;
 
-    if (currentPie) {
+    const loading = this.state.loaded.find(n => n === currentPie) === undefined;
+    const config = this.state.configs[currentPie];
+
+    const progressBarClassNames = classNames(
+      { [styles.active]: currentPie && loading },
+      styles.progressBar
+    );
+
+    return <div>
+      <ProgressBar
+        className={progressBarClassNames}
+        theme={progressBar}
+        mode="indeterminate" />
+      {currentPie && !loading && <div className={styles.demo}>
+        <Demo config={config} tag={currentPie} />
+      </div>}
+    </div>;
+
+    /*if (currentPie) {
       if (this.state.loaded.find(n => n === currentPie)) {
         const config = this.state.configs[currentPie];
         return <Demo
@@ -101,5 +120,6 @@ export default class DemoLoader extends React.Component {
     } else {
       return <div>DemoLoader</div>;
     }
+  */
   }
 }

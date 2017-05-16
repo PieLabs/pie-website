@@ -51,6 +51,10 @@ export default class Examples extends React.Component {
     });
   }
 
+  componentWillMount() {
+    this.setState({ currentPie: this.props.head.pies[0].name });
+  }
+
   render() {
 
     const { head } = this.props;

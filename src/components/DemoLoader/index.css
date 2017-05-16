@@ -1,3 +1,18 @@
 .root{
 
 }
+
+
+.progressBar{
+  position: absolute;
+  top: 0px;
+  opacity: 0.0;
+}
+
+.active {
+  opacity: 1;
+}
+
+.demo{
+  padding: 10px;
+}

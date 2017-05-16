@@ -12,7 +12,7 @@ pies:
   - name: corespring-match
     path: /assets/pies/corespring-match
     title: Match Interaction
-    description: The match interaction is super awesome
+    description: The match interaction 
   - name: corespring-number-line
     path: /assets/pies/corespring-number-line
     title: Number Line 
