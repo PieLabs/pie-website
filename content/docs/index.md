@@ -35,7 +35,7 @@ In Summary, the PIE Framework:
 
 - uses [Custom Elements](https://www.w3.org/TR/custom-elements/) to define re-usable UI Elements
 - uses JSON data to configure questions/interactions
-- uses Jacascript Modules (ES6 preferred, CommonJs Supported)
+- uses Javascript Modules (ES6 preferred, CommonJs Supported)
 - uses NPM packages for the definition of reusable PIEs and for dependency resolution
 - uses module bundling and packing techniques to create optimized shareable 'binary' bundles for rendering items
 
