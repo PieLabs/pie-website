@@ -16,5 +16,5 @@ pies:
   - name: corespring-number-line
     path: /assets/pies/corespring-number-line
     title: Number Line 
-    description: Num Num
+    description: Interact with a number line 
 ---
