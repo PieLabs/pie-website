@@ -26,7 +26,7 @@ export default class FeatureRow extends React.Component {
                     </div>
                     <div className={description}>
                         <h2>Freedom & Choice</h2>
-                        <p>PIE is an Open Source Framework. Any content (or new question types) you create belong to you. You do not require a licence, payment or partnership with any organization to display or share your content.</p>
+                        <p>PIE is an Open Source Framework. Any content (or new question types) you create belong to you. You do not require a licence, payment or partnership with any organization to us or share your content.</p>
                     </div>
                 </div>
                 <div className={feature}>

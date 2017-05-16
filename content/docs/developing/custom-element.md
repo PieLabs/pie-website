@@ -65,7 +65,7 @@ export default class MyPie extends HTMLElement {
       }));
     });
     // the pie-player will capture this event and set the model and session properties
-    this.dispatchEvent(new CustomEvent('pie.register', { bubbles: true }));   
+    this.dispatchEvent(new CustomEvent('register-pie', { bubbles: true }));   
   }
 }
 ```
@@ -87,7 +87,7 @@ This allows you to set the model to an appropriate state based on the current se
 
 The session property represents the state of a user's interaction with the PIE. If a setter is provided in the Custom Element this property will be set by the PIE player when loading an assessment item. 
 
-The Element can modify this object and should emit a `sessionChanged` event (see below) when it does so, so that if need be the session response may be persisted.
+The Element can modify this object and should emit a `response-changed` event (see below) when it does so, so that if need be the session response may be persisted.
 
 As with `model` the structure of this data is entirely up to the developer of the PIE that uses it.
 
