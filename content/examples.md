@@ -17,4 +17,8 @@ pies:
     path: /assets/pies/corespring-number-line
     title: Number Line 
     description: Interact with a number line 
+  - name: corespring-placement-ordering
+    path: /assets/pies/corespring-placement-ordering
+    title: Placement Ordering
+    description: This is a placement ordering interaction
 ---
