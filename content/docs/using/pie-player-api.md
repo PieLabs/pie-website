@@ -1,8 +1,8 @@
 # pie-player 
 
-> Pre-release note: Some of these APIs are not finalized and not fully implemented. Will be finalized for release.
 
 The `pie-player` is a custom element that simplifies working with a set of rendered pies. 
+
 
 
 ## Html
@@ -20,9 +20,10 @@ The `pie-player` is a custom element that simplifies working with a set of rende
 
 Set the env. The env can contain `{mode: 'gather|view|evaluate'}`. 
 
-* triggers a call to `controller.model`.
 * returns a `Promise` with the env object that was passed in.
 * if the `Promise` fails the env will not be set.
+* setting this propery triggers a call to the PIE's [controller.model](../../developing/controller) function.
+
 
 ```javascript
 player.env({view:'gather'})
@@ -37,42 +38,45 @@ player.env({view:'gather'})
   
 #### `sessions(s : [{id, ...}, ...]) : Promise<[]>`
 
-Set the sessions for each pie instance. A session must contain at a minimum: `{id, response}`. These will be passed down to the `pie` instances, which will then make changes to the object.
+Set the sessions for each `pie` instance defined in the [config json](defining-items). 
 
-* triggers a call to `controller.model`
+When loading an assessment item for a previously saved response this `sessions` object should be set by loading it from a database/storage system. If `sessions` is undefined a new empty `sessions` object will be initialized and passed to the `pie` instances. 
+
+
 * returns a `Promise` with the sessions array that was passed in.
 * if the `Promise` fails the sessions will not be set or passed on to the pie instances.
+* setting this propery triggers a call to the PIE's [controller.model](../../developing/controller) function.
 
-The pies can use the session to store session related data like the order of options for example.
      
 ```javascript
-  player.session([{id: '1', response:[]} ] )
+  player.sessions(/* load from server, or don't pass any param to create a new session */ )
     .then((sessions) => console.log('sessions successfully set'))
     .catch(e => console.error(e));
 ```
 
-#### `elementModels(m : [{}, ...]) : Promise<[]>`
-
-Sets the element models. TODO: more info...
 
 ####  `set controller`
 
-Set the controller. The controller must have the following api: 
+Set the player controller. The controller brokers passing of requests to the individual controller methods of the `pie` instances. These may be located client-side or on a server. For client-side usage the PIE CLI provides an implementation for client-side controller as part of a packaged item so you do not need to create one. For server-side uses the Framework provides example implementations that you can use to send the requests to a server environment. 
+
+The controller must have the following api: 
 
 * `model(sessions, env) : Promise<model>`
 * `outcome(sessions, env) : Promise<outcome>`
 
-> The controller will typically delegate down to the `pie` elements' controller module and assemble the results. See a ready to roll implemenation [here](http://todo.ocm).
+
 
 ```javascript
 player.controller = { model: () => { /*...*/}, outcome: () => {/*...*/} }; 
 ```
  
-#### `outcome() : Promise<outcome>` 
-
-Return the outcome for the the currently rendered `sessions`.
+#### `outcome() : Promise<outcome> ` (optional)
 
 * triggers a call to `controller.outcome`.
+
+If available, this returns the outcome for the the currently rendered `sessions`.
+This is for use in non-secure environments, this function may not be available and return an error in some environments. 
+
 
 ```javascript
  player.outcome() 
@@ -96,71 +100,19 @@ The outcome object has the form:
 
 ####  `status() : Promise<status[]>`
 
-Return the status for the `sessions`.
+Returns the status for the `sessions`. Each `pie` instance updates its status whenever a user changes their response. Using this method you can determine if every interaction that expects a response has one by checking the `complete` property. The status information is also returned in the `sessions-changed` event detail (see below).
 
 returns an array in the form: `[ {id: '1', complete: true|false}, ...]`.
 
 ```javascript
 player.status()
 .then((statuses) => {
-    console.log(statuses);
+    let allComplete = _.find(statuses, s => s.complete !== true).length > 0
+    console.log("all interactions are complete?": + allComplete);
 })
 .catch(e => console.error(e));
 ```
 
-#### `reset(predicate) : Promise<?>` 
-Reset the `sessions` so that any user responses have been removed (other data will be retained). For each object in the `sessions` array, remove the `response` field.
-
-##### @param `predicate : (sessionsUpdate: []) => Promise<[]>`
-This method receives the proposed update to the sessions. It allows the changes to be checked before they are applied. The promise resolves with the sessions array with any additional updates. If the promise rejects then no changes are made.
-
-
-```javascript
-
-    const updateValid = (sessions) => {
-      //... do some validation..
-    }
-
-    const reset = (updatedSessions) => {
-      return new Promise((resolve, reject) => {
-        if(updateValid(updatedSessions)){
-          resolve(updatedSessions);
-        } else {
-          reject(new Error('not a valid update'));
-        }
-      };
-
-    player.reset(resetPredicate)
-      .then(() => console.log('session has been reset'))
-      .catch(e => console.error(e))
-```
-
-#### `resetResponse(predicate) : Promise<?>` 
-Reset the `sessions` so that any user responses have been removed (other data will be retained). For each object in the `sessions` array, remove the `response` field.
-
-##### @param `predicate : (sessionsUpdate: []) => Promise<[]>`
-This method receives the proposed update to the sessions. It allows the changes to be checked before they are applied. The promise resolves with the sessions array with any additional updates. If the promise rejects then no changes are made.
-
-
-```javascript
-
-    const updateValid = (sessions) => {
-      //... do some validation..
-    }
-
-    const resetPredicate = (updatedSessions) => {
-      return new Promise((resolve, reject) => {
-        if(updateValid(updatedSessions)){
-          resolve(updatedSessions);
-        } else {
-          reject(new Error('not a valid update'));
-        }
-      };
-
-    player.resetResponse(resetPredicate)
-      .then(() => console.log('session has been reset'))
-      .catch(e => console.error(e))
-```
  
 #### `languages() : Promise<string[]>`
 
@@ -180,6 +132,16 @@ player.addEventListener('ready', () => {
     .catch(e => console.error(e));
 });
 ```
+
+#### `sessions-changed`
+
+When this event is emitted it indicates that `sessions` property will have updated state, and is a good time to save the sessions state to store completed user responses or if you want to let the user leave the view and resume later. 
+
+The event `detail` contains an array of statuses for `pie` instances, this the same as returned by `player.status()` method. 
+
+#### `{ detail: [ {id: '1', complete: true|false}, ...] }` 
+
+
 
 #### `model-updated`
 

@@ -5,7 +5,7 @@ The user interface for a PIE is provided in the browser by a [Custom Element](ht
 It should be defined in an ES6 module which is included as the main entry point the package (see [Packaging](packaging.md))
 
 > The most basic definition of an Element module is an ES6 module (CommonJS is also supported).
-> For information on developing and building your Custom Element module with framework support see [Using Modules](using-modules.md)
+> For information on developing and building your Custom Element module with framework support see *Using Modules* section below.
 
 
 ```javascript
@@ -41,6 +41,10 @@ export default class MyPie extends HTMLElement {
     this._render();
   }
 
+  set env(e) {
+    this._env = e;   
+  }
+
   _render(){
     if(this._session && this._model){
       const { clicked } = (this._session.response || {});
@@ -64,8 +68,7 @@ export default class MyPie extends HTMLElement {
         }
       }));
     });
-    // the pie-player will capture this event and set the model and session properties
-    this.dispatchEvent(new CustomEvent('register-pie', { bubbles: true }));   
+
   }
 }
 ```
@@ -130,21 +133,19 @@ class MyPie extends HTMLElement {
 A PIE should emit the following events:
 
 
-### `register-pie` 
-
-A PIE should emit this event when the Custom Element is connected in the DOM. This event is handled by the PIE Player which will then set the `model` and `session` properties on the element.
-
-
-###  `response-changed` (optional)
+###  `session-changed` (optional)
 
 This event should be dispatched if the data captured from a user (in `session`) has changed. 
+This should be data contains the users responses and that you would need to restore the user's session correctly at a later point in time.
 
 #### `{ detail: { complete }` - whether the session is deemed to be complete.
 
-Set this to describe whether the response is now complete. For example, if you had a had a multi choice question that required the student to pick at least 3 choices you would emit this event when when 3 choices had been selected.
+Set this to describe whether the response is now complete. For example, if you had a had a choice-style question that required the student to pick a minimum of 3 choices you would emit this event when when 3 choices had been selected but not before.
+
+If your interaction doesn't need to determine 'completeness' you cam omit the `detail.complete` property.
 
 ```javascript
-    var event = new CustomEvent('response-changed', {
+    var event = new CustomEvent('session-changed', {
       bubbles: true,
       detail: {
         complete: this.isComplete()
@@ -164,3 +165,23 @@ Set this to true if the model is not undefined. `hasModel = this._model !== unde
 ### Brower Support
 
 Custom Elements are natively supported in Chrome and are available in other browsers via a polyfill. (Firefox = In development,  and Webkit = done - Dec 2016)
+
+
+### Using Modules
+
+PIE Custom Elements are defined as javascript modules. In their most simple form, they can be provided as self-contained ES5 or ES6 module that exports an HTMLElement and has no external dependencies.
+
+In practice, however, most developers use frameworks such as React to build user interfaces and often rely on external /shared libraries as dependencies.
+
+To support this kind of development the PIE Framework provides packaging and development tools through the [PIE CLI](https://github.com/PieLabs/pie-cli) (which is built on top of the popular [webpack](https://webpack.github.io/) and [babel](https://babeljs.io) tools)
+
+These PIE CLI tools:
+
+ - Support the use of ES6 modules in PIEs (ES6 is recommended, commonJS is supported)
+ - Will bundle external dependencies defined in the PIE's `package.json`
+ - Support loading other assets (css/images)
+ - Provide hot-module loading for PIE development so developers can view code changes in real-time
+ - Support framework-specific file processing (such as `.jsx` or `.vue`) through webpack loaders.
+ - Provide packaging, transpilation and optimization for questions/assessments that use PIEs
+
+ Currently loaders for React `jsx` support has been provided built-in, other frameworks are possible to add. Please contact us if you'd like to see loaders for other frameworks added. 
