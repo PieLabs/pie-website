@@ -1,6 +1,6 @@
 {
   "elements": {
-    "corespring-placement-ordering": "/Users/bburton/Workspace/corespring-placement-ordering"
+    "corespring-placement-ordering": "github:pieelements/corespring-placement-ordering#feature/configure-panel"
   },
   "langs": [
     "en-US",
