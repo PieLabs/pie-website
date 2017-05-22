@@ -10,8 +10,7 @@ To create a PIE a developer implements:
 2. [Required]* An NPM package that allows users/systems to install and use your PIE
 3. [Optional] A Controller that manipulates the model for the UI and/or processes user input to generate results/outcomes and learning activity 
 
-
-> A PIE that implements a controller will referred to as an Interaction in these documents.
+_See the [Development Tutorial](../tutorial/development-tutorial.md) For a step-by-step tutorial of how to develop a PIE._
 
 
 #### Example
