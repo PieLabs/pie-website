@@ -1,6 +1,6 @@
 # Rendering Items
 
-The PIE [Packaging Tool](packaging-items.md) is used to assemble and package the Javascript and HTML into files needed to render an Assessment Item in the browser.
+The PIE [Packaging Tool](../packaging-items.md) is used to assemble and package the Javascript and HTML into files needed to render an Assessment Item in the browser.
 
 An Assessment Item packed by the Packaging Tool may have some or all of the following files:
 
