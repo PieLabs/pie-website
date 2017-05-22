@@ -25,13 +25,11 @@
 
 .brandHolder{
   flex: 1;
-}
-
-.brandHolder a {
-    &:hover {
+  & a  {
     text-decoration: none;
   }
 }
+
 
 
 

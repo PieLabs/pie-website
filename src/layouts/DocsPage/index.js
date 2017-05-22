@@ -7,6 +7,14 @@ import Helmet from 'react-helmet';
 import { Link } from "phenomic"
 import styles from './index.css';
 
+const mkLi = (current) => ({ to, children }) => {
+  const selected = current === to || `${to}/` === current;
+  return <li className={selected ? styles.selectedLink : ''}>
+    <Link to={to}>{children}</Link>
+  </li>
+}
+
+
 export default function DocsPage(props) {
   const { children, head, body } = props;
   const metaTitle = head.metaTitle ? head.metaTitle : head.title;
@@ -15,6 +23,8 @@ export default function DocsPage(props) {
   const meta = [
     { name: "description", content: head.description }
   ]; // TODO.. add og fields etc..
+
+  const Li = mkLi(props.__url);
 
   return <div>
     <Head head={props.head} />
@@ -25,38 +35,38 @@ export default function DocsPage(props) {
           <section className={sidebar}>
             <aside>
               <ul>
-                <li><Link to="/docs/">Introduction</Link></li>
+                <Li to="/docs/">Introduction</Li>
               </ul>
               <ul>
                 <li>Using Pie Content</li>
                 <ul>
-                  <li><Link to="/docs/using/quick-start">Quick Start</Link></li>
-                  <li><Link to="/docs/using/defining-items">Defning Items</Link></li>
-                  <li><Link to="/docs/using/packaging-items">Packaging Items</Link></li>
-                  <li><Link to="/docs/using/rendering-items">Rendering Items</Link></li>
-                  <li><Link to="/docs/using/pie-player-api">PIE Player Api</Link></li>
+                  <Li to="/docs/using/quick-start">Quick Start</Li>
+                  <Li to="/docs/using/defining-items">Defining Items</Li>
+                  <Li to="/docs/using/packaging-items">Packaging Items</Li>
+                  <Li to="/docs/using/rendering-items">Rendering Items</Li>
+                  <Li to="/docs/using/pie-player-api">PIE Player Api</Li>
                 </ul>
                 <li>PIE Development</li>
                 <ul>
-                  <li><Link to="/docs/developing/summary">Summary</Link></li>
-                  <li><Link to="/docs/developing/development">Development</Link></li>
-                  <li><Link to="/docs/developing/custom-element">Custom Element</Link></li>
-                  <li><Link to="/docs/developing/controller">Controller</Link></li>
-                  <li><Link to="/docs/developing/packaging">Packaging</Link></li>
-                  <li><Link to="/docs/developing/environment">Environment</Link></li>
-                  <li><Link to="/docs/developing/tutorial/development-tutorial">Development Tutorial</Link></li>
+                  <Li to="/docs/developing/summary">Summary</Li>
+                  <Li to="/docs/developing/development">Development</Li>
+                  <Li to="/docs/developing/custom-element">Custom Element</Li>
+                  <Li to="/docs/developing/controller">Controller</Li>
+                  <Li to="/docs/developing/packaging">Packaging</Li>
+                  <Li to="/docs/developing/environment">Environment</Li>
+                  <Li to="/docs/developing/tutorial/development-tutorial">Development Tutorial</Li>
                 </ul>
                 <li>Authoring Development</li>
                 <ul>
-                  <li><Link to="/docs/authoring/authoring">Authoring</Link></li>
-                  <li><Link to="/docs/authoring/uploader">Uploader Api</Link></li>
+                  <Li to="/docs/authoring/authoring">Authoring</Li>
+                  <Li to="/docs/authoring/uploader">Uploader Api</Li>
                 </ul>
               </ul>
               <ul>
-                <li><Link to="/docs/open-source-pies">Open Source PIEs</Link></li>
+                <Li to="/docs/open-source-pies">Open Source PIEs</Li>
               </ul>
               <ul>
-                <li><Link to="/docs/design-decisions">Design Decisions</Link></li>
+                <Li to="/docs/design-decisions">Design Decisions</Li>
               </ul>
             </aside>
           </section>
@@ -68,5 +78,5 @@ export default function DocsPage(props) {
         <Footer />
       </div>
     </div>
-  </div>;
+  </div >;
 } 

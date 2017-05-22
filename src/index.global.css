@@ -111,7 +111,9 @@ h5 {
 /* minimal styling, prefer removing this and use local styles */
 a {
   color: inherit;
-  text-decoration: none;
+}
+a:hover{
+  color: var(--color-primary);
 }
 
 hr {
