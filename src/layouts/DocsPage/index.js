@@ -75,8 +75,7 @@ export default function DocsPage(props) {
             </div>
           </section>
         </div>
-        <Footer />
       </div>
     </div>
-  </div >;
+  </div>;
 } 

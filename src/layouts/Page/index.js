@@ -19,13 +19,13 @@ export default function Page(props) {
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
         rel="stylesheet" />
     </Helmet>
-    <Header layout={head.layout}/>
+    <Header layout={head.layout} />
     <div className={holder}>
       <div className={contentHolder}>
         {children}
         <div dangerouslySetInnerHTML={{ __html: body }}></div>
-        <Footer />
       </div>
     </div>
+    <Footer />
   </div>;
 } 

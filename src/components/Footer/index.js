@@ -1,6 +1,6 @@
 import { Facebook, Medium, Snapchat, Twitter, Vimeo } from './icons';
 
-import Link from 'phenomic/lib/Link';
+import Link from '../Link';
 import React from 'react';
 import styles from './index.css';
 
@@ -14,7 +14,7 @@ export default class Footer extends React.Component {
     `;
     new Function(jsCode)();
   }
-  
+
   render() {
     return <footer className={styles.footer}>
       <div className={styles.center}>
@@ -22,13 +22,8 @@ export default class Footer extends React.Component {
           <nav className={styles.nav}>
             <Link to="/docs">Docs</Link>
           </nav>
-
-          <div className={styles.social}>
-            <Facebook />
-            <Twitter />
-          </div>
+          <span className={styles.copyright}>© CoreSpring 2017</span>
         </div>
-        <span className={styles.copyright}>© CoreSpring 2017</span>
       </div>
     </footer>;
   }
