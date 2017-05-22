@@ -5,15 +5,14 @@
 
 The PIE Framework is currently in pre-release.
 
-The current status is that we have ported all existing CoreSpring question types and tools to be compatible with the pie framework. We are in the process of updating the documentation for these elements to include them here. 
+CoreSpring is planning to release all of our question types including authorinng components as Open Source PIEs. You can see examples of these question types at www.corespring.org/samples, and authoring examples at www.corespring.org/authoring-demo.
 
-
-We will be publishing a catalog of these PIEs, and also welcome submissions for inclusion in this catalog.
+We are working with partners to extend and enhance the set of Open Source question types and tools that will be made available and we welcome contributions.
 
 
 ## Example PIEs
 
-These PIEs are reference examples of PIEs.
+These PIEs are some reference examples of PIEs.
 
 
 - [CoreSpring Choice - Single / Multi Choice Question Type](https://github.com/PieElements/corespring-choice)
@@ -22,5 +21,3 @@ These PIEs are reference examples of PIEs.
 - [CoreSpring Number Line](https://github.com/PieElements/corespring-number-line)
 
 
-
->These are implemented using ES6 and the React Framework. CoreSpring will be gradually porting all or our question types to be implemented this way.

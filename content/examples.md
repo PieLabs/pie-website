@@ -3,7 +3,7 @@ title: pie framework
 layout: Examples
 main: 
   title: Examples
-  subtitle: Here you will find examples of different PIE interactions.
+  subtitle: These are initial examples of some PIE interactions. A complete catalog of Open Source interactions and tools is under development.
 pies:
   - name: corespring-choice
     path: /assets/pies/corespring-choice
@@ -17,8 +17,4 @@ pies:
     path: /assets/pies/corespring-number-line
     title: Number Line 
     description: Interact with a number line 
-  - name: corespring-placement-ordering
-    path: /assets/pies/corespring-placement-ordering
-    title: Placement Ordering
-    description: This is a placement ordering interaction
 ---
