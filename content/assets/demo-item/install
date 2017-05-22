@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-PIELABS="http://localhost:3333/pie-website/"
+PIELABS="https://pielabs.github.io/pie-website/"
 
 mkdir pie-item  
 cd pie-item

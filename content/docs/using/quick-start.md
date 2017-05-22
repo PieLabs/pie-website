@@ -24,7 +24,7 @@ In this example, we will use a sample assessment item definition to package and 
 Or run the following script in a bash terminal:
 
 ```bash 
-source <(curl -s http://localhost:3333/pie-website/assets/demo-item/install)
+source <(curl -s https://pielabs.github.io/pie-website/assets/demo-item/install)
 ```
 
 ## Packing the item 
