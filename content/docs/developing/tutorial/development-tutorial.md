@@ -129,7 +129,7 @@ In order to display our configured PIE in a browser, run the `serve` task from t
 
 Then navigate your browser to `http://localhost:4000`. You should see the "hello, world" message we entered earlier:
 
-![Demo](/pie-website/assets/tutorial/demo.png)
+<img src="/pie-website/assets/tutorial/demo.png" width="800"/>
 
 
 Towards the top of the screen you will see a control panel for changing the view mode, language settings, and color contrast for the item. (This is a subset of the properties that can be set for the environment - a complete set will be coming in an upcoming version of the control panel.)
@@ -357,7 +357,7 @@ After this we'll import the `index.less` in our `index.js` file, and add some ma
 
 Note also that the `addEventListener` for changes on the `input` element will update the PIE's `_session` to reflect the user's changes. Open `http://localhost:4000`, and you should now see a toggle component: 
 
-![Toggle](/pie-website/assets/tutorial/toggle.png)
+<img src="/pie-website/assets/tutorial/toggle.png" width="800"/>
 
 [See the code here](https://github.com/PieLabs/pie-toggle/releases/tag/step-5)
 
@@ -398,7 +398,7 @@ Since this controller logic expects an `answer` field in the question to specify
 
 The `pie-controller` will use the `score` information to set the score in the demo. On the page at `http://localhost:4000`, click the toggle, change the view mode to 'evaluate', and you will see the score presented in the UI:
 
-![Score](/pie-website/assets/tutorial/score.png)
+<img src="/pie-website/assets/tutorial/score.png" width="800"/>
 
 [See the code here](https://github.com/PieLabs/pie-toggle/releases/tag/step-6)
 
@@ -468,7 +468,7 @@ Now that the model contains a `feedback` field, we will need to update the `src/
 
 On the page `http://localhost:4000`, click the toggle, change the view mode to 'evaluate', and you will see the feedback presented in the UI:
 
-![Feedback](/pie-website/assets/tutorial/feedback.png)
+<img src="/pie-website/assets/tutorial/feedback.png" width="800"/>
 
 [See the code here](https://github.com/PieLabs/pie-toggle/releases/tag/step-7)
 
