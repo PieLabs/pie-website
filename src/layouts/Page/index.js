@@ -3,6 +3,7 @@ import React, { PropTypes } from 'react';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import Helmet from 'react-helmet';
+import Intercom from '../../components/Intercom';
 import styles from './index.css';
 
 export default function Page(props) {
@@ -27,5 +28,6 @@ export default function Page(props) {
       </div>
     </div>
     <Footer />
+    <Intercom />
   </div>;
 } 

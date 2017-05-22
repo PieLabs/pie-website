@@ -6,15 +6,6 @@ import styles from './index.css';
 
 export default class Footer extends React.Component {
 
-
-
-  componentDidMount() {
-    const jsCode = `
-     window.Intercom("boot", { app_id: "jgcm12je"});
-    `;
-    new Function(jsCode)();
-  }
-
   render() {
     return <footer className={styles.footer}>
       <div className={styles.center}>
