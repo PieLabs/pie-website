@@ -21,19 +21,35 @@
     padding-left: 1rem;
     flex-wrap: nowrap;
     min-width: 14rem;
+
+
     & li {
       font-weight: 700;
       color: var(--color-primary-dark);
     }
     
+    
     & a {
       color: var(--color-primary-dark);
       font-weight: 400;
+      text-decoration: none;
     }
 
     & a:hover {
       color: var(--color-primary);
     }
+    
+}
+
+.selectedLink {
+  & a {
+    color: var(--color-primary);
+    font-weight: bold;
+  }
+  
+  & a:hover{
+    color: var(--color-primary-dark);
+  }
 }
 
 .sidebar ul {
