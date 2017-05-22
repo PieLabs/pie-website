@@ -7,13 +7,13 @@ The [PIE CLI](https://github.com/pielabs/pie-cli) tool supports development of P
 To create a new PIE:
 
 1. Install the PIE CLI tool: `npm install -g pie`
-2. Create a directory with the required files. See [Packaging PIEs](packaging.md) and implement your [Custom Element](custom-element.md)
+2. Create a directory with the required files. See [Packaging PIEs](../packaging.md) and implement your [Custom Element](../custom-element.md)
 3. Create an Assessment item config by defining `config.json` and `index.html`. See [Defining Items](../using/defining-items.md). 
 4. In the `config.json` define and `element` for your pie, and point it to the root directory of the package from step 1.
 5. Load your item with `pie serve` edit your source code, and PIE CLI's *live reload* will automatically reload your changes
 
 
-See the [Development Totorial](tutorial/development-tutorial.md) for a more complete walkthrough on creating a PIE.
+See the [Development Totorial](../tutorial/development-tutorial.md) for a more complete walkthrough on creating a PIE.
 
 > See the [PIE Elements](https://github.com/pieelements) organization on github for example PIEs.
 

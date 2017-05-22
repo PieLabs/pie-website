@@ -57,7 +57,11 @@ When loading an assessment item for a previously saved response this `sessions` 
 
 ####  `set controller`
 
-Set the player controller. The controller brokers passing of requests to the individual controller methods of the `pie` instances. These may be located client-side or on a server. For client-side usage the PIE CLI provides an implementation for client-side controller as part of a packaged item so you do not need to create one. For server-side uses the Framework provides example implementations that you can use to send the requests to a server environment. 
+Set the player controller. The controller brokers passing of requests to the individual controller methods of the `pie` instances. These may be located client-side or on a server. 
+
+~~For client-side usage the PIE CLI provides an implementation for client-side controller as part of a packaged item so you do not need to create one.~~ <a href="https://github.com/PieLabs/pie-controller" target="_blank">Here</a> is an example controller.
+
+For server-side uses the Framework provides example implementations that you can use to send the requests to a server environment. 
 
 The controller must have the following api: 
 

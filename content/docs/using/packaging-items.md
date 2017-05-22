@@ -5,29 +5,37 @@ The `config.json` and `index.html` files, along with other assets such as media 
 
 For this Item to be presented in a browser the Javascript code for rendering the PIE Custom Elements and Controller logic needs to be assembled.
 
-The [PIE CLI](https://github.com/PieLabs/pie-cli) provides a packaging tool that will package and assemble the PIE code and all dependencies needed for rendering. 
+The [PIE CLI](https://github.com/PieLabs/pie-cli) has a `pack` command that will package and assemble the PIE code and all dependencies needed for rendering. 
 
-```pie pack [item directory, defaults to current directory]```
+```bash
+pie pack
+```
+
+```bash
+pie help pack # to see options
+```
 
 When an Assessment Item is packaged the packaging tool adds the following javascript files to the item definition by default: 
 
 | File              | Description                                                        |
 |-------------------|--------------------------------------------------------------------|
-| pie-view.js       | Assembled Javascript for rendering the UI for the Assessment Item  |
-| pie-controller.js | Packaged controller code for the PIEs defined in the config        |
+| `pie-view.js`       | Assembled Javascript for rendering the UI for the Assessment Item  |
+| `pie-controllers.js` | Packaged controller code for the PIEs defined in the config        |
+| `pie-configure.js` | Packaged configuration UI for the PIEs (if defined).        |
 
 
 
-## Packaging for Client Side Only
+## Packaging example item 
 
-The `pie` cli has a flag `-C --include-complete` that will additionally add the following file to the packaged item:
+The `pie` cli has a flag `-C --include-complete` that will additionally add the following files to the packaged item:
 
 | File              | Description                                                        |
 |-------------------|--------------------------------------------------------------------|
-| pie.js            | Single file containing all code and config to render the item      |
+| `pie-item.js`            | defines a custom element: `pie-item` that contains view, controller and model internally.     |
+| `example.html`            | markup that renders `<pie-item></pie-item>`      |
 
 
-This script bundles the the client side view, the controllers and the configuration json data into one file. This is provided for creating a version of the assessment item that can easily be included as one file in HTML and does not require any server-side rendering capability. See [rendering items](rendering-items.md)
+`pie-item.js` is provided to allow simple rendering in HTML and does not require any server-side rendering capability. See [rendering items](rendering-items.md)
 
 
 ## Distributing Items
@@ -36,16 +44,17 @@ When sharing PIE Assessment Items between systems, the best practice is to share
 
 
 Example:
-```
+
+```bash
   config.json
   index.html
-  pie.js
+  pie-item.js
   pie-view.js
-  pie-controller.js
+  pie-controllers.js
+  pie-configure.js
   picture-one.png
   ...
 ```
-
 
 > Extra metadata that may (and should) be included with an Assessment Item is outside the scope of the PIE project.
 
@@ -53,6 +62,7 @@ Example:
 
 ## Advanced Packaging - Code Reuse
 
+> Note: The `manifest` command is currently disabled and under review.
 
 If you are packaging a lot of assessment items, you can optimize the process by reusing the same javascript code for items that use the same sets of `pies`.
 
