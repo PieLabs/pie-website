@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+PIELABS="https://pielabs.github.io/pie-website/"
+
+mkdir pie-item  
+cd pie-item
+curl "$PIELABS/assets/demo-item/index.html" -o index.html
+curl "$PIELABS/config.json" -o config.json 
