@@ -71,8 +71,33 @@
 }
 
 .docContent {
-    border-left: 1px solid #e0e0e0;
-    padding: 1.75rem 0 1.75rem 2.25rem;
-    flex-grow: 2;
-    max-width: calc(100% - 14rem);
+  border-left: 1px solid #e0e0e0;
+  padding: 1.75rem 0 1.75rem 2.25rem;
+  flex-grow: 2;
+  max-width: calc(100% - 14rem);
+
+  & table th {
+    text-align: left;
+    padding: 8px;
+    font-weight: 400;
+    background-color: color( var(--color-primary) a(10%));
+  }
+  & table td {
+    padding: 8px;
+  }
+  & table {
+    border-bottom: solid 1px color( var(--color-primary) a(10%));
+  }
+
+  & blockquote{
+    padding: 0;
+    margin: 0;
+    background-color: color( var(--color-primary) a(20%));
+    & p {
+      padding: 8px;
+      font-style: italic;
+    }
+  }
 }
+
+

@@ -11,7 +11,7 @@ To package and view the example Assessment Item we will use the PIE CLI toolkit,
 npm install -g pie
 ```
 
-> `npm` is included as part of the Node.js system. To use the command above you should first download and install node: https://nodejs.org/en/download/
+> `npm` is included as part of the Node.js system. To use the command above you should first [download](http://nodejs.org/en/download/) and install node.
 
 ## Download the sample assessment item
 
