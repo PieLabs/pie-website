@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "pie-website",
-  "version" : "0.1.0-prerelease",
+  "version": "0.1.0-prerelease",
   "homepage": "https://pielabs.github.io/pie-website",
   "twitter": "",
   "repository": "pielabs/pie-website",
@@ -16,6 +16,9 @@
     "test": "npm run build",
     "predeploy": "npm run build",
     "deploy": "./scripts/deploy"
+  },
+  "intercom": {
+    "appId": "jgcm12je"
   },
   "phenomic": {
     "CNAME": false

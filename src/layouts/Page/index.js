@@ -3,6 +3,7 @@ import React, { PropTypes } from 'react';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import Helmet from 'react-helmet';
+import Intercom from '../../components/Intercom';
 import styles from './index.css';
 
 export default function Page(props) {
@@ -19,13 +20,14 @@ export default function Page(props) {
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
         rel="stylesheet" />
     </Helmet>
-    <Header layout={head.layout}/>
+    <Header layout={head.layout} />
     <div className={holder}>
       <div className={contentHolder}>
         {children}
         <div dangerouslySetInnerHTML={{ __html: body }}></div>
-        <Footer />
       </div>
     </div>
+    <Footer />
+    <Intercom />
   </div>;
 } 
