@@ -3,7 +3,7 @@
   "name": "pie-website",
   "version": "0.1.0-prerelease",
   "homepage": "https://pielabs.github.io/pie-website",
-  "twitter": "",
+  "twitter": "pieframework",
   "repository": "pielabs/pie-website",
   "scripts": {
     "lint:js": "eslint --ignore-path .gitignore --fix .",
