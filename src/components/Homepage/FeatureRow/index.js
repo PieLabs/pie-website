@@ -26,7 +26,7 @@ export default class FeatureRow extends React.Component {
                     </div>
                     <div className={description}>
                         <h2>Freedom & Choice</h2>
-                        <p>PIE is an Open Source Framework. Any content (or new question types) you create belong to you. You do not require a licence, payment or partnership with any organization to us or share your content.</p>
+                        <p>PIE is an Open Source Framework. Any content (or new question types) you create belong to you. You do not require a licence, payment or partnership with any organization to use or share your content.</p>
                     </div>
                 </div>
                 <div className={feature}>
@@ -35,7 +35,7 @@ export default class FeatureRow extends React.Component {
                     </div>
                     <div className={description}>
                         <h2>Simple Distribution</h2>
-                        <p>PIE provides a non-proprietary format for Assement Content that preserves the design and functionality that the content developer intended. Both for simpler question types and more advanced interactions.</p>
+                        <p>PIE provides an open non-proprietary format for Assement Content that preserves the design and functionality that the content developer intended. Both for simpler question types and more advanced interactions.</p>
                     </div>
                 </div>                
                 <div className={feature}>
@@ -53,7 +53,7 @@ export default class FeatureRow extends React.Component {
                     </div>
                     <div className={description}>
                         <h2>Content Authoring</h2>
-                        <p>Integrate Technology Enhanced item authoring to your site, using free Open Source question types. </p>
+                        <p>You can Integrate question authoring to your site using any PIE-compatible question types. </p>
                     </div>
                 </div>
                 <div className={feature}>
