@@ -18,7 +18,8 @@ export default class Block extends React.Component {
       delay: 300,
       distance,
       scale: 1,
-      easing: 'ease'
+      easing: 'ease',
+      viewFactor: 0.4
     }
     sr.reveal(this.root, config);
   }
