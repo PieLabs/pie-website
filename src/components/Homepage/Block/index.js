@@ -11,7 +11,7 @@ export default class Block extends React.Component {
 
   componentDidMount() {
     const { image } = this.props;
-    const distance = '300px';
+    const distance = '200px';
     const config = {
       origin: image === 'left' ? 'left' : 'right',
       duration: 1000,
