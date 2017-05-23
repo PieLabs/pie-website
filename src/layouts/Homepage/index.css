@@ -3,11 +3,11 @@
 }
 
 .bigSection { 
-  height: 30vh; 
+  margin-top: 5rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 15rem;
+  margin-bottom: 10rem;
 }
 
 .featuresSection {
