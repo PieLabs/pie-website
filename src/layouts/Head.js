@@ -24,7 +24,7 @@ export default class Head extends React.Component {
     const url = joinUri(process.env.PHENOMIC_USER_URL, __url);
 
     const title = head.metaTitle || head.title || toName(__filename);
-    const favIcon = `${process.env.PHENOMIC_USER_URL}assets/pie-logo-orange.ico`;
+    const favIcon = `${process.env.PHENOMIC_USER_URL}assets/pie-logo-orange.png`;
 
     const meta = [
       { property: 'og:type', content: 'website' },
@@ -44,7 +44,7 @@ export default class Head extends React.Component {
     return <Helmet title={title}>
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
         rel="stylesheet" />
-      <link rel="icon" href={favIcon} />
+      <link rel="icon" type="image/png" href={favIcon} />
     </Helmet>;
   }
 
