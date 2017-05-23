@@ -69,7 +69,7 @@ export default class Examples extends React.Component {
     const { currentPie } = this.state;
 
     return <Root { ...this.props }>
-      <Head head={head} />
+      <Head {...this.props} />
 
       <div className={styles.panes}>
         <aside className={styles.list}>

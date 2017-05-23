@@ -28,7 +28,7 @@ export default function DocsPage(props) {
   const Li = mkLi(props.__url);
 
   return <div>
-    <Head head={props.head} />
+    <Head {...props} />
     <Header layout={head.layout} />
     <div className={styles.root}>
       <section className={sidebar}>

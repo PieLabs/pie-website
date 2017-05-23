@@ -1,5 +1,5 @@
 ---
-title: pie framework 
+title: examples 
 layout: Examples
 main: 
   title: Examples
