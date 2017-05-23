@@ -1,11 +1,26 @@
 import MediaQuery from 'react-responsive';
 import React from 'react';
+import sr from '../../scroll-reveal-instance';
 import styles from './index.css';
 
 export default class Block extends React.Component {
 
-  constructor(props) {
-    super(props);
+  constructor(props, context) {
+    super(props, context);
+  }
+
+  componentDidMount() {
+    const { image } = this.props;
+    const distance = '300px';
+    const config = {
+      origin: image === 'left' ? 'left' : 'right',
+      duration: 1000,
+      delay: 300,
+      distance,
+      scale: 1,
+      easing: 'ease'
+    }
+    sr.reveal(this.root, config);
   }
 
   render() {
@@ -15,22 +30,24 @@ export default class Block extends React.Component {
 
     const blockStyle = image === 'left' ? styles.reversedBlock : styles.block;
 
-    return <MediaQuery minDeviceWidth="600px">{
-      (wideEnough) => {
-        return <div className={blockStyle}>
-          <div className={textCol}>
-            <div className={textContent}>
-              <h3>{text}</h3>
-              <h5>{subtext}</h5>
+    return <div ref={r => this.root = r}>
+      <MediaQuery minDeviceWidth="600px">{
+        (wideEnough) => {
+          return <div className={blockStyle}>
+            <div className={textCol}>
+              <div className={textContent}>
+                <h3>{text}</h3>
+                <h5>{subtext}</h5>
+              </div>
+            </div>
+            <div className={imgCol}>
+              <img className={img} src={url}></img>
             </div>
           </div>
-          <div className={imgCol}>
-            <img className={img} src={url}></img>
-          </div>
-        </div>
+        }
       }
-    }
-    </MediaQuery>;
+      </MediaQuery>
+    </div>;
 
   }
 }

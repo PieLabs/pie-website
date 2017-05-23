@@ -24,7 +24,7 @@ body {
   color: var(--color-primary-dark);
   -webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-  overflow: hidden;
+  /*overflow: hidden;*/
 }
 
 /*

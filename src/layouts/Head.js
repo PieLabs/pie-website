@@ -4,7 +4,6 @@ import Helmet from 'react-helmet';
 
 export default class Head extends React.Component {
 
-
   render() {
 
     /*const meta = [

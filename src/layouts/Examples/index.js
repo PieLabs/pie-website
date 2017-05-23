@@ -27,7 +27,6 @@ const Root = (props) => {
       <div className={styles.contentHolder}>
         {children}
         <div dangerouslySetInnerHTML={{ __html: body }}></div>
-        {/*<Footer />*/}
       </div>
     </div>
   </div>

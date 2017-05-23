@@ -35,6 +35,7 @@ module.exports = (config) => {
       features: {
         customProperties: {
           variables: {
+            'padding': '20px',
             'header-height': '70px',
             'examples-list-width': '300px',
             'color-text': 'black',
