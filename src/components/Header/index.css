@@ -13,6 +13,7 @@
 }
 
 
+
 .navHolder {
   margin: 0 auto;
   display: flex;
@@ -24,14 +25,18 @@
   align-items: center;
 }
 
+
 .brandHolder{
+  opacity: 0;
   flex: 1;
   & a  {
     text-decoration: none;
   }
 }
 
-
+.showBrand {
+  opacity: 1.0;
+}
 
 
 .nav {

@@ -31,13 +31,12 @@ export default class Header extends React.Component {
       }
     }
 
+    const brandClassNames = classNames(styles.brandHolder, { [styles.showBrand]: layout !== 'Homepage' });
+
     return <header className={styles.root}>
       <div className={styles.navHolder}>
-        <div className={styles.brandHolder}>
-          {
-            layout != 'Homepage' &&
-            <PLink to="/"><Brand /></PLink>
-          }
+        <div className={brandClassNames}>
+          <PLink to="/"><Brand /></PLink>
         </div>
         <nav className={styles.nav}>
           <MediaQuery minDeviceWidth={600}>{onMatchDesktop}</MediaQuery>

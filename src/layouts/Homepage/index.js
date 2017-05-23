@@ -26,7 +26,7 @@ export default class Homepage extends React.Component {
       className={styles.root}
       { ...this.props }
       getRef={r => this.pageRoot = r} >
-      <Header />
+      <Header layout={this.props.head.layout} />
       <Centered>
         <section className={styles.bigSection}>
           <Main {...main} />
