@@ -9,3 +9,5 @@ dist
 content/assets/pies/*/.pie
 content/assets/pies/*/*.js
 content/assets/pies/*/example.html
+
+.vscode
