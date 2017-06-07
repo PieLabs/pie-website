@@ -8,5 +8,5 @@ for dir in `ls content/assets/pies`;
 do
   echo "pack $dir"
   cd "$root/content/assets/pies/$dir"
-  pie pack --clean --app website --include-complete
+  pie pack --clean --app website 
 done

@@ -17,14 +17,14 @@ npm install -g pie
 
 In this example, we will use a sample assessment item definition to package and view an item using the PIE CLI. You can run `pie serve` and edit the sample definition files and see the changes come through in the browser.
 
-* <a href="/pie-website/assets/demo-item/config.json" download="config.json">Download config.json</a>
-* <a href="/pie-website/assets/demo-item/index.html" download="index.html">Download index.html</a>
+* <a href="/assets/demo-item/config.json" download="config.json">Download config.json</a>
+* <a href="/assets/demo-item/index.html" download="index.html">Download index.html</a>
 * open a terminal in the directory of the downloaded files.
 
 Or run the following script in a bash terminal:
 
 ```bash 
-source <(curl -s https://pielabs.github.io/pie-website/assets/demo-item/install)
+source <(curl -s https://pie-framework.org/assets/demo-item/install)
 ```
 
 ## Packing the item 
