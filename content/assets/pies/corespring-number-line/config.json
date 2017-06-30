@@ -3,7 +3,7 @@
     "en-US"
   ],
   "elements": {
-    "corespring-number-line": "github:pieelements/corespring-number-line#feature/configure-panel"
+    "corespring-number-line": "github:pieelements/corespring-number-line#develop"
   },
   "models": [
     {
@@ -40,6 +40,8 @@
       ],
       "model": {
         "config": {
+          "width": 500,
+          "height": 300,
           "domain": [
             0,
             5

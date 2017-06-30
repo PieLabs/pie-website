@@ -102,9 +102,11 @@ export default class Demo extends React.Component {
 
     return <div className={styles.root}>
       <div className={styles.configure}>
+        <h4>Configuration</h4>
         <ConfigureTag />
       </div>
       <div className={styles.render}>
+        <h4>Rendering</h4>
         <Toolbar onEnvChanged={this.onEnvChanged.bind(this)} langs={config.langs} />
         <hr className={styles.hr} />
         <RenderTag></RenderTag>

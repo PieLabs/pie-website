@@ -37,7 +37,7 @@ module.exports = (config) => {
           variables: {
             'padding': '20px',
             'header-height': '70px',
-            'examples-list-width': '300px',
+            'examples-list-width': '250px',
             'color-text': 'black',
             'color-text-mid': 'rgb(117, 117, 117)',
             maxWidth: '1200px',
