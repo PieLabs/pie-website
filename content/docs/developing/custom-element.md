@@ -2,10 +2,11 @@
 
 The user interface for a PIE is provided in the browser by a [Custom Element](https://www.w3.org/TR/custom-elements/).
 
-It should be defined in an ES6 module which is included as the main entry point the package (see [Packaging](packaging.md))
+It should be defined in an ES6 module which is included as the main entry point the package (see [Packaging](../packaging.md))
 
 > The most basic definition of an Element module is an ES6 module (CommonJS is also supported).
-> For information on developing and building your Custom Element module with framework support see *Using Modules* section below.
+
+> For information on developing and building your Custom Element module with framework support see [Using Modules](#using-modules) section below.
 
 
 ```javascript
@@ -78,54 +79,22 @@ The Element receives 2 properties: `model` and `session`, that the `pie` instanc
 
 #### `set model`
 
-If you provide a controller with your PIE, then your controller will be called to set this property on your Custom Element, see [Controller](./controller.md).
+If you provide a controller with your PIE, then your controller will be called to set this property on your Custom Element, see [Controller](../controller.md).
 
-The controller is passed the complete configuration defined for the assessment item, along with the user's session data, and current [Environment](./environment.md) properties.
+The controller is passed the complete configuration defined for the assessment item, along with the user's session data, and current [Environment](../environment.md) properties.
 
-This allows you to set the model to an appropriate state based on the current settings. For example if in the `environment` property the `view` was set to `evaluate` you would need the correct responses to a question available in your model so your Custom Element can display information about the responses. Or if the environment indicated that the current user had certain accessibility requirements, you can modify the model to support those.
+This allows you to set the model to an appropriate state based on the current settings. For example if in the `env` property the `mode` was set to `evaluate` you would need the correct responses to a question available in your model so your Custom Element can display information about the responses. Or if the environment indicated that the current user had certain accessibility requirements, you can modify the model to support those.
 
+If no controller is provided by the pie definition, the `model` Promise will return: the `model` and `env` parameters that were passed in to it: `{model, env}`.
 
 
 #### `set session`
 
 The session property represents the state of a user's interaction with the PIE. If a setter is provided in the Custom Element this property will be set by the PIE player when loading an assessment item. 
 
-The Element can modify this object and should emit a `response-changed` event (see below) when it does so, so that if need be the session response may be persisted.
+The Element can modify this object and should emit a `session-changed` event (see below) when it does so, so that if need be the session response may be persisted.
 
 As with `model` the structure of this data is entirely up to the developer of the PIE that uses it.
-
-#### `set env`
-
-The `env` property contains data that reflect the current user context. Any updates do these properties will be passed to the Custom Element by setting this property.
-
-For a complete description of the properties in `env` see: [Environment](environment.md)
-
-### Custom Element Properties
-
-If you do not provide a controller and only provide a Custom Element, your element may receive configuration data to its properties in two ways:
-
-#### JSON configuration
-
-config.json
-```json
-  ...
-  models: [
-    {
-      "id":"1",
-      "element":"my-pie",
-      "fooBar": "some data"
-    }
-  ]
-```
-
-MyPie.js:
-```javascript
-class MyPie extends HTMLElement {
-  set fooBar(value) {
-    // == 'some data'
-  }
-}
-```
 
 
 ### Events

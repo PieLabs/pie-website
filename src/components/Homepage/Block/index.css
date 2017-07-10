@@ -21,14 +21,17 @@
 
 .textContent {
   padding-left: 2rem;
+  & h3{
+    margin-top: 0;
+    padding-top: 0;
+  }
   width:80%;
 }
 
 .hline {
-  margin-top: 4rem;
   height: 3px;
   width: 100%;
-  background-color: #6C6E72;
+  background-color: white;
 }
 
 .img {

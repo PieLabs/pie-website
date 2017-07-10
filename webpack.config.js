@@ -1,15 +1,13 @@
-import path from "path"
-
-import webpack from "webpack"
 import ExtractTextPlugin from "extract-text-webpack-plugin"
-import { phenomicLoader } from "phenomic"
 import PhenomicLoaderFeedWebpackPlugin
   from "phenomic/lib/loader-feed-webpack-plugin"
 import PhenomicLoaderSitemapWebpackPlugin
   from "phenomic/lib/loader-sitemap-webpack-plugin"
-
+import jsDocToMarkdown from './src/build/js-doc-to-markdown-loader';
+import path from "path"
+import { phenomicLoader } from "phenomic"
 import pkg from "./package.json"
-
+import webpack from "webpack"
 export default (config = {}) => {
 
   // hot loading for postcss config
@@ -34,14 +32,21 @@ export default (config = {}) => {
         {
           // phenomic requirement
           test: /\.(md|markdown)$/,
-          loader: phenomicLoader,
-          query: {
-            context: path.join(__dirname, config.source),
-            // plugins: [
-            //   ...require("phenomic/lib/loader-preset-markdown").default
-            // ]
-            // see https://phenomic.io/docs/usage/plugins/
-          },
+          use: [
+            {
+              loader: phenomicLoader,
+              options: {
+                context: path.join(__dirname, config.source),
+                // plugins: [
+                //   ...require("phenomic/lib/loader-preset-markdown").default
+                // ]
+                // see https://phenomic.io/docs/usage/plugins/
+              }
+            },
+            {
+              loader: './src/build/js-doc-to-markdown-loader'
+            }
+          ]
         },
 
         // *.js => babel + eslint

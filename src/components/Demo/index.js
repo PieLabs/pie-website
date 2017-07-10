@@ -23,7 +23,18 @@ export default class Demo extends React.Component {
   get controller() {
     const { tag } = this.props;
     const controllerId = `pie-controller-${tag}`
-    return window[controllerId][tag];
+    const map = window[controllerId];
+    if (!map) {
+      throw new Error(`can't find controller map using window['${controllerId}']`);
+    }
+
+    const ctrl = map[tag];
+
+    if (!map) {
+      throw new Error(`can't find module for ${tag} in controller map at window['${controllerId}']`);
+    }
+
+    return ctrl;
   }
 
   updatePlayer(model) {
@@ -91,9 +102,11 @@ export default class Demo extends React.Component {
 
     return <div className={styles.root}>
       <div className={styles.configure}>
+        <h4>Configuration</h4>
         <ConfigureTag />
       </div>
       <div className={styles.render}>
+        <h4>Rendering</h4>
         <Toolbar onEnvChanged={this.onEnvChanged.bind(this)} langs={config.langs} />
         <hr className={styles.hr} />
         <RenderTag></RenderTag>

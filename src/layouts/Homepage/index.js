@@ -1,43 +1,42 @@
 import {
   Block,
+  FeatureRow,
   Main,
-  FeatureRow
 } from '../../components/Homepage';
 
-import Link from '../../components/Link';
+import Centered from '../../components/Centered';
+import Header from '../../components/Header';
 import Page from '../Page';
-import Head from '../Head';
 import React from 'react';
 import styles from './index.css';
-import FontIcon from 'react-toolbox/lib/font_icon';
 
+export default class Homepage extends React.Component {
 
-export default (props) => {
+  render() {
+    const {
+      bottomLinkText,
+      main,
+      promoVideo,
+      publishers,
+      developers,
+      features
+  } = this.props.head;
 
-
-  const {
-    bottomLinkText,
-    main,
-    promoVideo,
-    publishers,
-    developers,
-    features
-  } = props.head;
-
-  const { bottom, bigSection, featuresSection } = styles;
-
-  return <Page { ...props }>
-      <Head head={props.head} />
-      <section className={bigSection}>
-        <Main {...main}/>
-      </section>
-      <div className={featuresSection}>
-      <FeatureRow features={features}/>
-      </div>
-      <Block {...publishers} image={'right'}/>
-      <Block {...developers}/>
-      
-
-
-  </Page>;
+    return <Page
+      className={styles.root}
+      { ...this.props }
+      getRef={r => this.pageRoot = r} >
+      <Header layout={this.props.head.layout} />
+      <Centered>
+        <section className={styles.bigSection}>
+          <Main {...main} />
+        </section>
+        <div className={styles.featuresSection}>
+          <FeatureRow features={styles.features} />
+        </div>
+        <Block {...developers} image={'left'} />
+        <Block {...publishers} image={'right'} />
+      </Centered>
+    </Page >;
+  }
 }

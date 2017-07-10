@@ -11,20 +11,20 @@ To package and view the example Assessment Item we will use the PIE CLI toolkit,
 npm install -g pie
 ```
 
-> `npm` is included as part of the Node.js system. To use the command above you should first download and install node: https://nodejs.org/en/download/
+> `npm` is included as part of the Node.js system. To use the command above you should first [download](http://nodejs.org/en/download/) and install node.
 
 ## Download the sample assessment item
 
 In this example, we will use a sample assessment item definition to package and view an item using the PIE CLI. You can run `pie serve` and edit the sample definition files and see the changes come through in the browser.
 
-* <a href="/pie-website/assets/demo-item/config.json" download="config.json">Download config.json</a>
-* <a href="/pie-website/assets/demo-item/index.html" download="index.html">Download index.html</a>
+* <a href="/assets/demo-item/config.json" download="config.json">Download config.json</a>
+* <a href="/assets/demo-item/index.html" download="index.html">Download index.html</a>
 * open a terminal in the directory of the downloaded files.
 
 Or run the following script in a bash terminal:
 
 ```bash 
-source <(curl -s https://pielabs.github.io/pie-website/assets/demo-item/install)
+source <(curl -s http://pie-framework.org/assets/demo-item/install)
 ```
 
 ## Packing the item 

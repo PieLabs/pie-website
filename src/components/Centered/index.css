@@ -1,0 +1,15 @@
+.root{
+  width: 100%;
+}
+
+.centered{
+  width: 100%;
+  max-width: calc(var(--maxWidth) - calc(var(--padding) * 2));
+  margin: 0 auto;
+}
+
+.content{
+  padding-left: var(--padding);
+  padding-right: var(--padding);
+  box-sizing: border-box;
+}

@@ -1,30 +1,50 @@
 import React, { PropTypes } from 'react';
 
 import Helmet from 'react-helmet';
+import _ from 'lodash';
+import { joinUri } from 'phenomic';
+
+const toName = (n) => {
+  if (n) {
+    return _.last(n.split('/')).replace('.md', '');
+  } else {
+    return '';
+  }
+}
 
 export default class Head extends React.Component {
 
-  componentDidMount() {
-    const jsCode = `
-      (function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/jgcm12je';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()
-    `;
-    new Function(jsCode)();
-  }
-
   render() {
+    const { head, __filename, __url } = this.props;
+    const { metadata: { pkg } } = this.context;
 
-    /*const meta = [
-      { name: "description", content: head.description }
-    ]; // TODO.. add og fields etc..
-    */
+    const socialImage = head.hero && head.hero.match("://") ? head.hero
+      : joinUri(process.env.PHENOMIC_USER_URL, head.hero);
 
-    const { head } = this.props;
+    const url = joinUri(process.env.PHENOMIC_USER_URL, __url);
 
-    const metaTitle = head.metaTitle ? head.metaTitle : head.title;
+    const title = head.metaTitle || head.title || toName(__filename);
+    const favIcon = `${process.env.PHENOMIC_USER_URL}assets/pie-logo-orange.png`;
 
-    return <Helmet title={metaTitle}>
+    const meta = [
+      { property: 'og:type', content: 'website' },
+      { property: 'og:title', content: title },
+      { property: 'og:url', content: url },
+      { property: 'og:image', content: socialImage },
+      { property: 'og:description', content: head.description },
+      { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:title', content: title },
+      { name: 'twitter:creator', content: `@${pkg.twitter}` },
+      { name: 'twitter:description', content: head.description },
+      { name: 'twitter:image', content: socialImage },
+      { name: 'description', content: head.description },
+    ];
+
+
+    return <Helmet title={title}>
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
         rel="stylesheet" />
+      <link rel="icon" type="image/png" href={favIcon} />
     </Helmet>;
   }
 
@@ -33,4 +53,9 @@ export default class Head extends React.Component {
 Head.propTypes = {
   head: PropTypes.object.isRequired
 }
+
+Head.contextTypes = {
+  metadata: PropTypes.object.isRequired,
+}
+
 

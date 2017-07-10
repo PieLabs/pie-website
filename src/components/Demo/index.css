@@ -1,14 +1,25 @@
 .root{
   display: flex;
+  flex-wrap: wrap; 
 }
 
 .hr {
   margin: 10px 0 10px 0;
 }
 
+h4 {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  font-weight: 300;
+  border-bottom: solid 1px var(--color-primary);
+}
+
 .configure{
   flex: 1;
   padding-right: 10px;
+  padding-bottom: 20px;
 }
 
 .render{

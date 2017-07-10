@@ -6,6 +6,7 @@ root=$(pwd)
 
 for dir in `ls content/assets/pies`;
 do
+  echo "pack $dir"
   cd "$root/content/assets/pies/$dir"
-  pie clean && pie pack --app website -C --include-complete
+  pie pack --clean --pie-name "$dir" 
 done

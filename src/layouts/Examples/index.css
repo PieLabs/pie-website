@@ -32,7 +32,7 @@
 
 .examples {
   composes: common;
-  left: 300px;
+  left: var(--examples-list-width);
   padding: 0px;
   overflow: auto;
 }

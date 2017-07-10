@@ -27,7 +27,6 @@ const Root = (props) => {
       <div className={styles.contentHolder}>
         {children}
         <div dangerouslySetInnerHTML={{ __html: body }}></div>
-        {/*<Footer />*/}
       </div>
     </div>
   </div>
@@ -70,7 +69,7 @@ export default class Examples extends React.Component {
     const { currentPie } = this.state;
 
     return <Root { ...this.props }>
-      <Head head={head} />
+      <Head {...this.props} />
 
       <div className={styles.panes}>
         <aside className={styles.list}>

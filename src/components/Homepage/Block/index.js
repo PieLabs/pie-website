@@ -1,39 +1,54 @@
-import React from 'react';
-import styles from './index.css';
 import MediaQuery from 'react-responsive';
-
+import React from 'react';
+import sr from '../../scroll-reveal-instance';
+import styles from './index.css';
 
 export default class Block extends React.Component {
 
-  constructor(props) {
-    super(props);
+  constructor(props, context) {
+    super(props, context);
+  }
+
+  componentDidMount() {
+    const { image } = this.props;
+    const distance = '200px';
+    const config = {
+      origin: image === 'left' ? 'left' : 'right',
+      duration: 1000,
+      delay: 300,
+      distance,
+      scale: 1,
+      easing: 'ease',
+      viewFactor: 0.4
+    }
+    sr.reveal(this.root, config);
   }
 
   render() {
     const { leader, text, subtext, url, image, imgHeight } = this.props;
 
-    const {img, imgCol, textCol, textContent, hline } = styles;
+    const { img, imgCol, textCol, textContent, hline } = styles;
 
     const blockStyle = image === 'left' ? styles.reversedBlock : styles.block;
-  
-    return <MediaQuery minDeviceWidth="600px">{
-      (wideEnough) => {
-        return <div className={blockStyle}>
-          <div className={textCol}>
-            &nbsp;
-           <div className={hline}></div>
-            <div className={textContent}>
-              <h3>{text}</h3>
-              <h5>{subtext}</h5>
+
+    return <div ref={r => this.root = r}>
+      <MediaQuery minDeviceWidth="600px">{
+        (wideEnough) => {
+          return <div className={blockStyle}>
+            <div className={textCol}>
+              <div className={textContent}>
+                <h3>{text}</h3>
+                <h5>{subtext}</h5>
+              </div>
+            </div>
+            <div className={imgCol}>
+              <img className={img} src={url}></img>
             </div>
           </div>
-          <div className={imgCol}>
-            <img className={img} src={url}></img>
-          </div>
-        </div>
+        }
       }
-    }
-    </MediaQuery>;
+      </MediaQuery>
+    </div>;
 
   }
 }

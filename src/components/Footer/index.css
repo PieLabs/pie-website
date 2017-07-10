@@ -1,8 +1,8 @@
 .footer{
   background-color:  var(--color-primary-light); 
   display: flex;
-  padding: 20px;
-  padding-bottom: 60px;
+  margin:0;
+  padding: 20px 0 60px 0;
   border-top: solid 1px color( var(--color-primary-dark) a(10%));
   color: var(--color-primary-dark);
   width: 100%;
@@ -13,6 +13,19 @@
   .footer{
     flex-direction: column;
   }
+}
+
+.copyright{
+  font-size: 10px;
+}
+.center{
+  width: 100%;
+}
+.content{
+  margin: 0 auto;
+  max-width: var(--maxWidth);
+  display: flex;
+  justify-content: space-between;
 }
 
 .nav {
