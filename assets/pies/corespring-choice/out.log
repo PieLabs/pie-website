@@ -1,0 +1,358 @@
+10:31:16.810 - info: [cli] opts: _=[pack], logFile=out.log
+10:31:16.897 - info: [npm-dir] [install] ...
+10:31:16.911 - info: [npm-dir] [install] ...
+10:31:16.913 - info: [npm-dir] [install] ...
+10:31:20.323 - info: [webpack-builder] webpack compile done for ./client.entry.js. duration (ms): 3323
+10:31:20.363 - error: [webpack-builder] Hash: 2bd09217ed1ad194eb2a
+Version: webpack 3.1.0
+Time: 26ms
+             Asset    Size  Chunks             Chunk Names
+pie-controllers.js  3.1 kB       0  [emitted]  main
+   [0] ./.pie/controllers.entry.js 71 bytes {0} [built]
+
+ERROR in ./.pie/controllers.entry.js
+Module not found: Error: Can't resolve 'corespring-choice-controller' in '/Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie'
+resolve 'corespring-choice-controller' in '/Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie'
+  Parsed request is a module
+  using description file: /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/package.json (relative path: .)
+    Field 'browser' doesn't contain a valid alias configuration
+  after using description file: /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/package.json (relative path: .)
+    resolve as module
+      /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/node_modules doesn't exist or is not a directory
+      /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/node_modules doesn't exist or is not a directory
+      /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/node_modules doesn't exist or is not a directory
+      /Users/edeustace/dev/github/PieLabs/pie-website/content/node_modules doesn't exist or is not a directory
+      /Users/edeustace/dev/github/PieLabs/node_modules doesn't exist or is not a directory
+      /Users/edeustace/dev/github/node_modules doesn't exist or is not a directory
+      /Users/edeustace/dev/node_modules doesn't exist or is not a directory
+      /Users/edeustace/node_modules doesn't exist or is not a directory
+      /Users/node_modules doesn't exist or is not a directory
+      /node_modules doesn't exist or is not a directory
+      looking for modules in /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/.configure/node_modules
+        using description file: /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/.configure/package.json (relative path: ./node_modules)
+          Field 'browser' doesn't contain a valid alias configuration
+        after using description file: /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/.configure/package.json (relative path: ./node_modules)
+          using description file: /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/.configure/package.json (relative path: ./node_modules/corespring-choice-controller)
+            no extension
+              Field 'browser' doesn't contain a valid alias configuration
+              /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/.configure/node_modules/corespring-choice-controller doesn't exist
+            .js
+              Field 'browser' doesn't contain a valid alias configuration
+              /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/.configure/node_modules/corespring-choice-controller.js doesn't exist
+            .jsx
+              Field 'browser' doesn't contain a valid alias configuration
+              /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/.configure/node_modules/corespring-choice-controller.jsx doesn't exist
+            as directory
+              /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/.configure/node_modules/corespring-choice-controller doesn't exist
+      looking for modules in /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/.controllers/node_modules
+        using description file: /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/.controllers/package.json (relative path: ./node_modules)
+          Field 'browser' doesn't contain a valid alias configuration
+        after using description file: /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/.controllers/package.json (relative path: ./node_modules)
+          using description file: /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/.controllers/package.json (relative path: ./node_modules/corespring-choice-controller)
+            no extension
+              Field 'browser' doesn't contain a valid alias configuration
+              /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/.controllers/node_modules/corespring-choice-controller doesn't exist
+            .js
+              Field 'browser' doesn't contain a valid alias configuration
+              /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/.controllers/node_modules/corespring-choice-controller.js doesn't exist
+            .jsx
+              Field 'browser' doesn't contain a valid alias configuration
+              /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/.controllers/node_modules/corespring-choice-controller.jsx doesn't exist
+            as directory
+              /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/.controllers/node_modules/corespring-choice-controller doesn't exist
+      looking for modules in /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/node_modules
+        using description file: /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/package.json (relative path: ./node_modules)
+          Field 'browser' doesn't contain a valid alias configuration
+        after using description file: /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/package.json (relative path: ./node_modules)
+          using description file: /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/package.json (relative path: ./node_modules/corespring-choice-controller)
+            no extension
+              Field 'browser' doesn't contain a valid alias configuration
+              /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/node_modules/corespring-choice-controller doesn't exist
+            .js
+              Field 'browser' doesn't contain a valid alias configuration
+              /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/node_modules/corespring-choice-controller.js doesn't exist
+            .jsx
+              Field 'browser' doesn't contain a valid alias configuration
+              /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/node_modules/corespring-choice-controller.jsx doesn't exist
+            as directory
+              /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/node_modules/corespring-choice-controller doesn't exist
+      looking for modules in /Users/edeustace/dev/github/PieLabs/pie-cli/node_modules
+        using description file: /Users/edeustace/dev/github/PieLabs/pie-cli/package.json (relative path: ./node_modules)
+          Field 'browser' doesn't contain a valid alias configuration
+        after using description file: /Users/edeustace/dev/github/PieLabs/pie-cli/package.json (relative path: ./node_modules)
+          using description file: /Users/edeustace/dev/github/PieLabs/pie-cli/package.json (relative path: ./node_modules/corespring-choice-controller)
+            no extension
+              Field 'browser' doesn't contain a valid alias configuration
+              /Users/edeustace/dev/github/PieLabs/pie-cli/node_modules/corespring-choice-controller doesn't exist
+            .js
+              Field 'browser' doesn't contain a valid alias configuration
+              /Users/edeustace/dev/github/PieLabs/pie-cli/node_modules/corespring-choice-controller.js doesn't exist
+            .jsx
+              Field 'browser' doesn't contain a valid alias configuration
+              /Users/edeustace/dev/github/PieLabs/pie-cli/node_modules/corespring-choice-controller.jsx doesn't exist
+            as directory
+              /Users/edeustace/dev/github/PieLabs/pie-cli/node_modules/corespring-choice-controller doesn't exist
+      looking for modules in /Users/edeustace/dev/github/PieLabs/pie-cli/node_modules/pie-support-less/node_modules
+        using description file: /Users/edeustace/dev/github/PieLabs/pie-cli/node_modules/pie-support-less/package.json (relative path: ./node_modules)
+          Field 'browser' doesn't contain a valid alias configuration
+        after using description file: /Users/edeustace/dev/github/PieLabs/pie-cli/node_modules/pie-support-less/package.json (relative path: ./node_modules)
+          using description file: /Users/edeustace/dev/github/PieLabs/pie-cli/node_modules/pie-support-less/package.json (relative path: ./node_modules/corespring-choice-controller)
+            no extension
+              Field 'browser' doesn't contain a valid alias configuration
+              /Users/edeustace/dev/github/PieLabs/pie-cli/node_modules/pie-support-less/node_modules/corespring-choice-controller doesn't exist
+            .js
+              Field 'browser' doesn't contain a valid alias configuration
+              /Users/edeustace/dev/github/PieLabs/pie-cli/node_modules/pie-support-less/node_modules/corespring-choice-controller.js doesn't exist
+            .jsx
+              Field 'browser' doesn't contain a valid alias configuration
+              /Users/edeustace/dev/github/PieLabs/pie-cli/node_modules/pie-support-less/node_modules/corespring-choice-controller.jsx doesn't exist
+            as directory
+              /Users/edeustace/dev/github/PieLabs/pie-cli/node_modules/pie-support-less/node_modules/corespring-choice-controller doesn't exist
+      looking for modules in /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/node_modules
+        using description file: /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/package.json (relative path: ./node_modules)
+          Field 'browser' doesn't contain a valid alias configuration
+        after using description file: /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/package.json (relative path: ./node_modules)
+          using description file: /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/package.json (relative path: ./node_modules/corespring-choice-controller)
+            no extension
+              Field 'browser' doesn't contain a valid alias configuration
+              /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/node_modules/corespring-choice-controller doesn't exist
+            .js
+              Field 'browser' doesn't contain a valid alias configuration
+              /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/node_modules/corespring-choice-controller.js doesn't exist
+            .jsx
+              Field 'browser' doesn't contain a valid alias configuration
+              /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/node_modules/corespring-choice-controller.jsx doesn't exist
+            as directory
+              /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/node_modules/corespring-choice-controller doesn't exist
+      looking for modules in /Users/edeustace/dev/github/PieLabs/pie-website/node_modules
+        using description file: /Users/edeustace/dev/github/PieLabs/pie-website/package.json (relative path: ./node_modules)
+          Field 'browser' doesn't contain a valid alias configuration
+        after using description file: /Users/edeustace/dev/github/PieLabs/pie-website/package.json (relative path: ./node_modules)
+          using description file: /Users/edeustace/dev/github/PieLabs/pie-website/package.json (relative path: ./node_modules/corespring-choice-controller)
+            no extension
+              Field 'browser' doesn't contain a valid alias configuration
+              /Users/edeustace/dev/github/PieLabs/pie-website/node_modules/corespring-choice-controller doesn't exist
+            .js
+              Field 'browser' doesn't contain a valid alias configuration
+              /Users/edeustace/dev/github/PieLabs/pie-website/node_modules/corespring-choice-controller.js doesn't exist
+            .jsx
+              Field 'browser' doesn't contain a valid alias configuration
+              /Users/edeustace/dev/github/PieLabs/pie-website/node_modules/corespring-choice-controller.jsx doesn't exist
+            as directory
+              /Users/edeustace/dev/github/PieLabs/pie-website/node_modules/corespring-choice-controller doesn't exist
+[/Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/node_modules]
+[/Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/node_modules]
+[/Users/edeustace/dev/github/PieLabs/pie-website/content/assets/node_modules]
+[/Users/edeustace/dev/github/PieLabs/pie-website/content/node_modules]
+[/Users/edeustace/dev/github/PieLabs/node_modules]
+[/Users/edeustace/dev/github/node_modules]
+[/Users/edeustace/dev/node_modules]
+[/Users/edeustace/node_modules]
+[/Users/node_modules]
+[/node_modules]
+[/Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/.configure/node_modules/corespring-choice-controller]
+[/Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/.configure/node_modules/corespring-choice-controller.js]
+[/Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/.configure/node_modules/corespring-choice-controller.jsx]
+[/Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/.configure/node_modules/corespring-choice-controller]
+[/Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/.controllers/node_modules/corespring-choice-controller]
+[/Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/.controllers/node_modules/corespring-choice-controller.js]
+[/Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/.controllers/node_modules/corespring-choice-controller.jsx]
+[/Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/.controllers/node_modules/corespring-choice-controller]
+[/Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/node_modules/corespring-choice-controller]
+[/Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/node_modules/corespring-choice-controller.js]
+[/Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/node_modules/corespring-choice-controller.jsx]
+[/Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/node_modules/corespring-choice-controller]
+[/Users/edeustace/dev/github/PieLabs/pie-cli/node_modules/corespring-choice-controller]
+[/Users/edeustace/dev/github/PieLabs/pie-cli/node_modules/corespring-choice-controller.js]
+[/Users/edeustace/dev/github/PieLabs/pie-cli/node_modules/corespring-choice-controller.jsx]
+[/Users/edeustace/dev/github/PieLabs/pie-cli/node_modules/corespring-choice-controller]
+[/Users/edeustace/dev/github/PieLabs/pie-cli/node_modules/pie-support-less/node_modules/corespring-choice-controller]
+[/Users/edeustace/dev/github/PieLabs/pie-cli/node_modules/pie-support-less/node_modules/corespring-choice-controller.js]
+[/Users/edeustace/dev/github/PieLabs/pie-cli/node_modules/pie-support-less/node_modules/corespring-choice-controller.jsx]
+[/Users/edeustace/dev/github/PieLabs/pie-cli/node_modules/pie-support-less/node_modules/corespring-choice-controller]
+[/Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/node_modules/corespring-choice-controller]
+[/Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/node_modules/corespring-choice-controller.js]
+[/Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/node_modules/corespring-choice-controller.jsx]
+[/Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/node_modules/corespring-choice-controller]
+[/Users/edeustace/dev/github/PieLabs/pie-website/node_modules/corespring-choice-controller]
+[/Users/edeustace/dev/github/PieLabs/pie-website/node_modules/corespring-choice-controller.js]
+[/Users/edeustace/dev/github/PieLabs/pie-website/node_modules/corespring-choice-controller.jsx]
+[/Users/edeustace/dev/github/PieLabs/pie-website/node_modules/corespring-choice-controller]
+ @ ./.pie/controllers.entry.js 1:31-70
+10:31:20.384 - error: [webpack-builder] Hash: 0a9add186a1671ea43ba
+Version: webpack 3.1.0
+Time: 14ms
+           Asset     Size  Chunks             Chunk Names
+pie-configure.js  2.79 kB       0  [emitted]  main
+   [0] ./.pie/default.configure.entry.js 151 bytes {0} [built]
+
+ERROR in ./.pie/default.configure.entry.js
+Module not found: Error: Can't resolve 'corespring-choice-configure' in '/Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie'
+resolve 'corespring-choice-configure' in '/Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie'
+  Parsed request is a module
+  using description file: /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/package.json (relative path: .)
+    Field 'browser' doesn't contain a valid alias configuration
+  after using description file: /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/package.json (relative path: .)
+    resolve as module
+      /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/node_modules doesn't exist or is not a directory
+      /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/node_modules doesn't exist or is not a directory
+      /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/node_modules doesn't exist or is not a directory
+      /Users/edeustace/dev/github/PieLabs/pie-website/content/node_modules doesn't exist or is not a directory
+      /Users/edeustace/dev/github/PieLabs/node_modules doesn't exist or is not a directory
+      /Users/edeustace/dev/github/node_modules doesn't exist or is not a directory
+      /Users/edeustace/dev/node_modules doesn't exist or is not a directory
+      /Users/edeustace/node_modules doesn't exist or is not a directory
+      /Users/node_modules doesn't exist or is not a directory
+      /node_modules doesn't exist or is not a directory
+      looking for modules in /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/.configure/node_modules
+        using description file: /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/.configure/package.json (relative path: ./node_modules)
+          Field 'browser' doesn't contain a valid alias configuration
+        after using description file: /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/.configure/package.json (relative path: ./node_modules)
+          using description file: /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/.configure/package.json (relative path: ./node_modules/corespring-choice-configure)
+            no extension
+              Field 'browser' doesn't contain a valid alias configuration
+              /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/.configure/node_modules/corespring-choice-configure doesn't exist
+            .js
+              Field 'browser' doesn't contain a valid alias configuration
+              /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/.configure/node_modules/corespring-choice-configure.js doesn't exist
+            .jsx
+              Field 'browser' doesn't contain a valid alias configuration
+              /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/.configure/node_modules/corespring-choice-configure.jsx doesn't exist
+            as directory
+              /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/.configure/node_modules/corespring-choice-configure doesn't exist
+      looking for modules in /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/.controllers/node_modules
+        using description file: /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/.controllers/package.json (relative path: ./node_modules)
+          Field 'browser' doesn't contain a valid alias configuration
+        after using description file: /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/.controllers/package.json (relative path: ./node_modules)
+          using description file: /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/.controllers/package.json (relative path: ./node_modules/corespring-choice-configure)
+            no extension
+              Field 'browser' doesn't contain a valid alias configuration
+              /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/.controllers/node_modules/corespring-choice-configure doesn't exist
+            .js
+              Field 'browser' doesn't contain a valid alias configuration
+              /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/.controllers/node_modules/corespring-choice-configure.js doesn't exist
+            .jsx
+              Field 'browser' doesn't contain a valid alias configuration
+              /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/.controllers/node_modules/corespring-choice-configure.jsx doesn't exist
+            as directory
+              /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/.controllers/node_modules/corespring-choice-configure doesn't exist
+      looking for modules in /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/node_modules
+        using description file: /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/package.json (relative path: ./node_modules)
+          Field 'browser' doesn't contain a valid alias configuration
+        after using description file: /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/package.json (relative path: ./node_modules)
+          using description file: /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/package.json (relative path: ./node_modules/corespring-choice-configure)
+            no extension
+              Field 'browser' doesn't contain a valid alias configuration
+              /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/node_modules/corespring-choice-configure doesn't exist
+            .js
+              Field 'browser' doesn't contain a valid alias configuration
+              /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/node_modules/corespring-choice-configure.js doesn't exist
+            .jsx
+              Field 'browser' doesn't contain a valid alias configuration
+              /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/node_modules/corespring-choice-configure.jsx doesn't exist
+            as directory
+              /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/node_modules/corespring-choice-configure doesn't exist
+      looking for modules in /Users/edeustace/dev/github/PieLabs/pie-cli/node_modules
+        using description file: /Users/edeustace/dev/github/PieLabs/pie-cli/package.json (relative path: ./node_modules)
+          Field 'browser' doesn't contain a valid alias configuration
+        after using description file: /Users/edeustace/dev/github/PieLabs/pie-cli/package.json (relative path: ./node_modules)
+          using description file: /Users/edeustace/dev/github/PieLabs/pie-cli/package.json (relative path: ./node_modules/corespring-choice-configure)
+            no extension
+              Field 'browser' doesn't contain a valid alias configuration
+              /Users/edeustace/dev/github/PieLabs/pie-cli/node_modules/corespring-choice-configure doesn't exist
+            .js
+              Field 'browser' doesn't contain a valid alias configuration
+              /Users/edeustace/dev/github/PieLabs/pie-cli/node_modules/corespring-choice-configure.js doesn't exist
+            .jsx
+              Field 'browser' doesn't contain a valid alias configuration
+              /Users/edeustace/dev/github/PieLabs/pie-cli/node_modules/corespring-choice-configure.jsx doesn't exist
+            as directory
+              /Users/edeustace/dev/github/PieLabs/pie-cli/node_modules/corespring-choice-configure doesn't exist
+      looking for modules in /Users/edeustace/dev/github/PieLabs/pie-cli/node_modules/pie-support-less/node_modules
+        using description file: /Users/edeustace/dev/github/PieLabs/pie-cli/node_modules/pie-support-less/package.json (relative path: ./node_modules)
+          Field 'browser' doesn't contain a valid alias configuration
+        after using description file: /Users/edeustace/dev/github/PieLabs/pie-cli/node_modules/pie-support-less/package.json (relative path: ./node_modules)
+          using description file: /Users/edeustace/dev/github/PieLabs/pie-cli/node_modules/pie-support-less/package.json (relative path: ./node_modules/corespring-choice-configure)
+            no extension
+              Field 'browser' doesn't contain a valid alias configuration
+              /Users/edeustace/dev/github/PieLabs/pie-cli/node_modules/pie-support-less/node_modules/corespring-choice-configure doesn't exist
+            .js
+              Field 'browser' doesn't contain a valid alias configuration
+              /Users/edeustace/dev/github/PieLabs/pie-cli/node_modules/pie-support-less/node_modules/corespring-choice-configure.js doesn't exist
+            .jsx
+              Field 'browser' doesn't contain a valid alias configuration
+              /Users/edeustace/dev/github/PieLabs/pie-cli/node_modules/pie-support-less/node_modules/corespring-choice-configure.jsx doesn't exist
+            as directory
+              /Users/edeustace/dev/github/PieLabs/pie-cli/node_modules/pie-support-less/node_modules/corespring-choice-configure doesn't exist
+      looking for modules in /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/node_modules
+        using description file: /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/package.json (relative path: ./node_modules)
+          Field 'browser' doesn't contain a valid alias configuration
+        after using description file: /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/package.json (relative path: ./node_modules)
+          using description file: /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/package.json (relative path: ./node_modules/corespring-choice-configure)
+            no extension
+              Field 'browser' doesn't contain a valid alias configuration
+              /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/node_modules/corespring-choice-configure doesn't exist
+            .js
+              Field 'browser' doesn't contain a valid alias configuration
+              /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/node_modules/corespring-choice-configure.js doesn't exist
+            .jsx
+              Field 'browser' doesn't contain a valid alias configuration
+              /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/node_modules/corespring-choice-configure.jsx doesn't exist
+            as directory
+              /Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/node_modules/corespring-choice-configure doesn't exist
+      looking for modules in /Users/edeustace/dev/github/PieLabs/pie-website/node_modules
+        using description file: /Users/edeustace/dev/github/PieLabs/pie-website/package.json (relative path: ./node_modules)
+          Field 'browser' doesn't contain a valid alias configuration
+        after using description file: /Users/edeustace/dev/github/PieLabs/pie-website/package.json (relative path: ./node_modules)
+          using description file: /Users/edeustace/dev/github/PieLabs/pie-website/package.json (relative path: ./node_modules/corespring-choice-configure)
+            no extension
+              Field 'browser' doesn't contain a valid alias configuration
+              /Users/edeustace/dev/github/PieLabs/pie-website/node_modules/corespring-choice-configure doesn't exist
+            .js
+              Field 'browser' doesn't contain a valid alias configuration
+              /Users/edeustace/dev/github/PieLabs/pie-website/node_modules/corespring-choice-configure.js doesn't exist
+            .jsx
+              Field 'browser' doesn't contain a valid alias configuration
+              /Users/edeustace/dev/github/PieLabs/pie-website/node_modules/corespring-choice-configure.jsx doesn't exist
+            as directory
+              /Users/edeustace/dev/github/PieLabs/pie-website/node_modules/corespring-choice-configure doesn't exist
+[/Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/node_modules]
+[/Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/node_modules]
+[/Users/edeustace/dev/github/PieLabs/pie-website/content/assets/node_modules]
+[/Users/edeustace/dev/github/PieLabs/pie-website/content/node_modules]
+[/Users/edeustace/dev/github/PieLabs/node_modules]
+[/Users/edeustace/dev/github/node_modules]
+[/Users/edeustace/dev/node_modules]
+[/Users/edeustace/node_modules]
+[/Users/node_modules]
+[/node_modules]
+[/Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/.configure/node_modules/corespring-choice-configure]
+[/Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/.configure/node_modules/corespring-choice-configure.js]
+[/Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/.configure/node_modules/corespring-choice-configure.jsx]
+[/Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/.configure/node_modules/corespring-choice-configure]
+[/Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/.controllers/node_modules/corespring-choice-configure]
+[/Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/.controllers/node_modules/corespring-choice-configure.js]
+[/Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/.controllers/node_modules/corespring-choice-configure.jsx]
+[/Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/.controllers/node_modules/corespring-choice-configure]
+[/Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/node_modules/corespring-choice-configure]
+[/Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/node_modules/corespring-choice-configure.js]
+[/Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/node_modules/corespring-choice-configure.jsx]
+[/Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/node_modules/corespring-choice-configure]
+[/Users/edeustace/dev/github/PieLabs/pie-cli/node_modules/corespring-choice-configure]
+[/Users/edeustace/dev/github/PieLabs/pie-cli/node_modules/corespring-choice-configure.js]
+[/Users/edeustace/dev/github/PieLabs/pie-cli/node_modules/corespring-choice-configure.jsx]
+[/Users/edeustace/dev/github/PieLabs/pie-cli/node_modules/corespring-choice-configure]
+[/Users/edeustace/dev/github/PieLabs/pie-cli/node_modules/pie-support-less/node_modules/corespring-choice-configure]
+[/Users/edeustace/dev/github/PieLabs/pie-cli/node_modules/pie-support-less/node_modules/corespring-choice-configure.js]
+[/Users/edeustace/dev/github/PieLabs/pie-cli/node_modules/pie-support-less/node_modules/corespring-choice-configure.jsx]
+[/Users/edeustace/dev/github/PieLabs/pie-cli/node_modules/pie-support-less/node_modules/corespring-choice-configure]
+[/Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/node_modules/corespring-choice-configure]
+[/Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/node_modules/corespring-choice-configure.js]
+[/Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/node_modules/corespring-choice-configure.jsx]
+[/Users/edeustace/dev/github/PieLabs/pie-website/content/assets/pies/corespring-choice/.pie/node_modules/corespring-choice-configure]
+[/Users/edeustace/dev/github/PieLabs/pie-website/node_modules/corespring-choice-configure]
+[/Users/edeustace/dev/github/PieLabs/pie-website/node_modules/corespring-choice-configure.js]
+[/Users/edeustace/dev/github/PieLabs/pie-website/node_modules/corespring-choice-configure.jsx]
+[/Users/edeustace/dev/github/PieLabs/pie-website/node_modules/corespring-choice-configure]
+ @ ./.pie/default.configure.entry.js 2:0-68
+10:31:20.386 - info: [CLI] build complete, run manifest...

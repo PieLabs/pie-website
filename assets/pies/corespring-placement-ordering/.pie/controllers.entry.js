@@ -1,0 +1,1 @@
+exports['corespring-placement-ordering'] = require('corespring-placement-ordering-controller');

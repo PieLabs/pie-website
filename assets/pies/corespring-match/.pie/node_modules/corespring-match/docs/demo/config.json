@@ -1,0 +1,69 @@
+{
+  "elements": {
+    "corespring-match": "../.."
+  },
+  "models": [
+    {
+      "id": "1",
+      "element": "corespring-match",
+      "correctResponse": [
+        {
+            "id" : "row-1",
+            "matchSet" : [ 
+                true, 
+                true, 
+                false
+            ]
+        }, 
+        {
+            "id" : "row-2",
+            "matchSet" : [ 
+                false, 
+                true, 
+                false
+            ]
+        }, 
+        {
+            "id" : "row-3",
+            "matchSet" : [ 
+                true, 
+                false, 
+                false
+            ]
+        }
+      ],
+      "columns": [
+        {
+          "labelHtml": ""
+        },
+        {
+          "labelHtml": "Greater for Data Set 1"
+        },
+        {
+          "labelHtml": "Equal for Both Data Sets"
+        },
+        {
+          "labelHtml": "Greater for Data Set 2"
+        }
+      ],
+      "rows" : [ 
+        {
+          "id" : "row-1",
+          "labelHtml" : "Mean"
+        }, 
+        {
+          "id" : "row-2",
+          "labelHtml" : "Median"
+        }, 
+        {
+          "id" : "row-3",
+          "labelHtml" : "Standard Deviation"
+        }
+      ],
+      "config": {
+        "layout": "four-columns",
+        "inputType": "checkbox"
+      }
+    }
+  ]
+}

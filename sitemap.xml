@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<url> <loc>http://pie-framework.org/404.html</loc> </url>
+<url> <loc>http://pie-framework.org/about/</loc> </url>
+<url> <loc>http://pie-framework.org/docs/README/</loc> </url>
+<url> <loc>http://pie-framework.org/docs/authoring/authoring/</loc> </url>
+<url> <loc>http://pie-framework.org/docs/authoring/uploader/</loc> </url>
+<url> <loc>http://pie-framework.org/docs/community/</loc> </url>
+<url> <loc>http://pie-framework.org/docs/community/advisory-board/</loc> </url>
+<url> <loc>http://pie-framework.org/docs/community/code-of-conduct/</loc> </url>
+<url> <loc>http://pie-framework.org/docs/design-decisions/</loc> </url>
+<url> <loc>http://pie-framework.org/docs/developing/accessibility/</loc> </url>
+<url> <loc>http://pie-framework.org/docs/developing/controller/</loc> </url>
+<url> <loc>http://pie-framework.org/docs/developing/custom-element/</loc> </url>
+<url> <loc>http://pie-framework.org/docs/developing/environment/</loc> </url>
+<url> <loc>http://pie-framework.org/docs/developing/i18n/</loc> </url>
+<url> <loc>http://pie-framework.org/docs/developing/packaging/</loc> </url>
+<url> <loc>http://pie-framework.org/docs/developing/summary/</loc> </url>
+<url> <loc>http://pie-framework.org/docs/developing/tutorial/development-tutorial/</loc> </url>
+<url> <loc>http://pie-framework.org/docs/developing/utility-libraries/</loc> </url>
+<url> <loc>http://pie-framework.org/docs/developing/yeoman-generators/</loc> </url>
+<url> <loc>http://pie-framework.org/docs/</loc> </url>
+<url> <loc>http://pie-framework.org/docs/open-source-pies/</loc> </url>
+<url> <loc>http://pie-framework.org/docs/roadmap/</loc> </url>
+<url> <loc>http://pie-framework.org/docs/using/client-side-api/</loc> </url>
+<url> <loc>http://pie-framework.org/docs/using/defining-items/</loc> </url>
+<url> <loc>http://pie-framework.org/docs/using/packaging-items/</loc> </url>
+<url> <loc>http://pie-framework.org/docs/using/pie-player-api/</loc> </url>
+<url> <loc>http://pie-framework.org/docs/using/quick-start/</loc> </url>
+<url> <loc>http://pie-framework.org/docs/using/rendering-items/</loc> </url>
+<url> <loc>http://pie-framework.org/examples/</loc> </url>
+<url> <loc>http://pie-framework.org/faq/</loc> </url>
+<url> <loc>http://pie-framework.org/icon-credits/</loc> </url>
+<url> <loc>http://pie-framework.org/</loc> </url>
+<url> <loc>http://pie-framework.org/team/</loc> </url>
+</urlset>

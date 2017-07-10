@@ -1,0 +1,69 @@
+{
+  "elements": {
+    "corespring-match": "github:pieelements/corespring-match#feature/configure-poc"
+  },
+  "models": [
+    {
+      "id": "1",
+      "element": "corespring-match",
+      "correctResponse": [
+        {
+            "id" : "row-1",
+            "matchSet" : [ 
+                true, 
+                true, 
+                false
+            ]
+        }, 
+        {
+            "id" : "row-2",
+            "matchSet" : [ 
+                false, 
+                true, 
+                false
+            ]
+        }, 
+        {
+            "id" : "row-3",
+            "matchSet" : [ 
+                true, 
+                false, 
+                false
+            ]
+        }
+      ],
+      "columns": [
+        {
+          "labelHtml": ""
+        },
+        {
+          "labelHtml": "Column 1"
+        },
+        {
+          "labelHtml": "Column 2"
+        },
+        {
+          "labelHtml": "Column 3"
+        }
+      ],
+      "rows" : [ 
+        {
+          "id" : "row-1",
+          "labelHtml" : "Row 1"
+        }, 
+        {
+          "id" : "row-2",
+          "labelHtml" : "Row 1"
+        }, 
+        {
+          "id" : "row-3",
+          "labelHtml" : "Row 3"
+        }
+      ],
+      "config": {
+        "layout": "four-columns",
+        "inputType": "checkbox"
+      }
+    }
+  ]
+}
