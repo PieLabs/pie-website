@@ -26,7 +26,7 @@ The following directory structure and files should be present in the package (an
 
 > Additional directories and files may be added at the discretion of the developer, but care should be taken so that only necessary files are included with the package using the `files` property in package.json and `.npmignore` file as necessary. 
 
-
+> The controller's package name must be `${mainPackageName}-controller`.
 
 The package definition is contained in `package.json` see [npm documentation](https://docs.npmjs.com/files/package.json) for full documentation on npm packages.
 
