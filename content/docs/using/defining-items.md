@@ -186,7 +186,19 @@ Here is question two:
 
 As an author of Assessment Items you will almost always define PIE elements as described above, by name and version.
 
-However it is sometimes useful - particularly for development - to point to a local package or alternate branch/version of a package for a PIE.
+However it is possible to use different naming systems. The first thing to note is the element key in the `elements` map is an internal reference that is used to define the custom element name, and as a reference in the `models.$.element` field. If you don't specify a package name this key will be used as the package name.
+
+Here are some examples: 
+
+| key     | value                  | npm                   | tag                                            |
+| ------- | ---------------------- | --------------------- | ---------------------------------------------- |
+| `my-el` | `1.0.0`                | `my-el@1.0.0`         | `my-el`                                        |
+| `my-el` | `~1.0.0`               | `my-el@~1.0.0`        | `my-el`                                        |
+| `my-el` | `my-other-el~1.0.0`    | `my-other-el@~1.0.0`  | `my-el`                                        |
+| `my-el` | `@scope/my-el~1.0.0`   | `@scope/my-el@~1.0.0` | `my-el`                                        |
+| `my-el` | `../../`               | `file:../../`         | `my-el` (if that's the name im `package.json`) |
+| `my-el` | `../../single-file.js` | n/a                   | `my-el`                                        |
+
 
 To support this the PIE CLI allows you to:
 
