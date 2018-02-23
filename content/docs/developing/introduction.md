@@ -1,8 +1,18 @@
-# Summary
+# Introduction
 
 Each PIE is an individual UI Element or interaction that is designed to be re-used in the context of assessment. An example of a PIE might be a multi-choice question-type or a question-type that allows a student to make a bar chart or plot points on a graph. However a PIE does not to be a question type, it can be any Custom Element. 
 
-Users can configure one or more instances of PIEs to create questions/assessment experiences for students. See [Rendering Items](/using/rendering-items.md)
+Users can configure one or more instances of PIEs to create questions/assessment experiences for students. See [Rendering Items](/using/rendering-items.md).
+
+
+# The pieces of a PIE
+
+A PIE is at a minimum a package that defines a custom element for rendering. It may also define a controller for processing the model before sending it to the ui element and also a configuration ui to allow the data model to be altered. All these parts are defined by using some packaging conventions. Follow the links below for more detail:
+
+* [defining a pie package](/developing/packaging)
+* [element](/developing/element)
+* [controller](/developing/controller)
+* [configuration](/developing/confiration)
 
 To create a PIE a developer implements:
 

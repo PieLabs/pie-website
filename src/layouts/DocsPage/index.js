@@ -47,7 +47,7 @@ export default function DocsPage(props) {
             </ul>
             <li>PIE Development</li>
             <ul>
-              <Li to="/docs/developing/summary">Summary</Li>
+              <Li to="/docs/developing/introduction">Introduction</Li>
               <Li to="/docs/developing/custom-element">Custom Element</Li>
               <Li to="/docs/developing/controller">Controller</Li>
               <Li to="/docs/developing/packaging">Packaging</Li>
