@@ -1,6 +1,13 @@
-# Custom Element
+# Element
 
 The user interface for a PIE is provided in the browser by a [Custom Element](https://www.w3.org/TR/custom-elements/).
+
+The element package must export a custom element so that it may be used as follows: 
+
+```javascript
+import MyEl from 'my-el';
+customElements.define('my-el', MyEl);
+```
 
 It should be defined in an ES6 module which is included as the main entry point the package (see [Packaging](../packaging.md))
 

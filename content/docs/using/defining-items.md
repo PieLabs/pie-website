@@ -5,11 +5,12 @@ Using PIEs (Portable Interactions and Elements) an author can define an Assessme
 A simple example is a single Multi-Choice question with text prompt and choices. A more advanced example might include more than one question or interaction type, include content like text passages, video or charts, and include tools to support a user like a calculator or accessiblity tools.
 
 
-To define an Assessment Item a user (or more typically an authoring system) creates a JSON and HTML file: 
+To define an Assessment Item a user (or more typically an authoring system) creates a JS/JSON and HTML file: 
 
 
-- **config.json** - Contains the definition and configuration data for the PIEs used in the item.
+- **config.js | config.json** - Contains the definition and configuration data for the PIEs used in the item.
 - **index.html** - Contains the Custom Element declarations within html markup.
+
 
 These files are placed in a directory structure which may also contain any assets that the Item needs such as images, media or metadata.
 
@@ -24,12 +25,14 @@ These files are placed in a directory structure which may also contain any asset
 > note: formats for metadata for Items is outside the scope of PIE Framework itself. 
 
 
-### Config JSON
+### Config JS/JSON
 
-The `config.json` file defines the configuration model for the Assessment Item and for the PIEs in the Item. For example a configuration for a mult-choice PIE question would include the choices, and the correct responses. 
+The `config.(js|json)` file defines the configuration model for the Assessment Item and for the PIEs in the Item. For example a configuration for a mult-choice PIE question would include the choices, and the correct responses. 
+
+
+> Note: If using config.js, it should export an object like so: `module.exports = {}`.
 
 The JSON definition contains the following properties:
-
 
 #### player (optional)
 
@@ -39,8 +42,6 @@ The JSON definition contains the following properties:
 
 This defines the PIE Player npm package to use for rendering the item.
 If this property is not defined, the latest version of `pie-player` will be used by the packaging tool when assessment item.
-
-
 
 #### `elements` (required)
 
@@ -63,7 +64,6 @@ Versions are defined using the [Semantic Versioning Specification](http://semver
 For example using, `~1.0.1` will indicate that any 'patch' / bug fix version of version 1.0 of the Element can be used, such as 1.0.1, 1.0.2 etc.
 
 > For advanced use, `elements` can be defined as local files or directories, see [advanced](#advanced) section below.
-
 
 
 #### `models` 

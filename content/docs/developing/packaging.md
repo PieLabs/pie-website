@@ -1,101 +1,111 @@
-## Packaging
+# Packaging
 
-PIEs are defined as NPM packages, and as a best practice follow a structure for including documentation and a demonstration of the PIE.
+PIEs are defined as NPM packages.
 
-## NPM Package
+> The package definition is contained in `package.json` see [npm documentation](https://docs.npmjs.com/files/package.json) for full documentation on npm packages.
 
+There are up to 3 parts that make up a pie:
 
-The following directory structure and files should be present in the package (and included when it is installed with npm):
-
-
-| File | Description | Required? |
-|----------------------------|----------------------------------------------------------------------------------------------------------------------|-------------|
-| `README.md` | Documentation to describe the PIE to users  | yes |
-| `package.json` | Definition for the PIE as an NPM package. Including dependencies needed for rendering | yes |
-| `controller/` | Folder containing controller code | no |
-| `controller/package.json` | Used to define dependencies and `main` file for the controller. Dependencies should be kept to a minimum and should not use IO | no |
-| `docs/schema.json` | JSON schema document that defines the configuration model for the PIE | recommended |
-| `docs/demo` | Directory that defines a demonstration assessment item that uses this PIE | recommended |
-| `docs/demo/index.html` | The HTML markup for the demo assessment item | recommended |
-| `docs/demo/config.json` | The JSON config for the demo assessment item | recommended |
-| `src/` | Directory for the PIE Element source code*  | recommended |
-| `test/` | Directory for the test code  | recommended |
-
-> \* The PIE element source code can be placed in any directory as long as the `main` property in `package.json` points to the main module for this code. 
+| Name | Description | Required? |
+|----------------------------|----|--|
+| `element` | the custom element that renders in an assessment context | yes |
+| `controller` | the logic for preparing the data model for the `element` | no|
+| `configure` | the custom element that renders a configuration ui for editing the data model. | no|
 
 
-> Additional directories and files may be added at the discretion of the developer, but care should be taken so that only necessary files are included with the package using the `files` property in package.json and `.npmignore` file as necessary. 
+### Internal vs External components
 
-> The controller's package name must be `${mainPackageName}-controller`.
+A pie may define external or internal packages for `element`, `controller` and `configure` (or any combination thereof).
 
-The package definition is contained in `package.json` see [npm documentation](https://docs.npmjs.com/files/package.json) for full documentation on npm packages.
+#### Defining external components
 
-Example Package.json:
+* add a dependency declaration to the npm package you want to use.
+* add a `pie` object to the package.json and within that map either `element`, `controller` or `configure` to the dependency.
 
-```json
+Here is an example: 
+
+```javascript
 {
-  "name": "my-pie",
-  "version": "0.0.1",
-  "main": "src/index.js",
-  "dependencies": {...},
-  "files": ["docs", "src", "controller"],
+  "name" : "foo",
+  "dependencies" : {
+    "my-el" : "^1.0.0",
+    "my-controller" : "^1.0.0",
+    "my-configure" : "^1.0.0"
+  },
+  "pie" : {
+    "element" : "my-el",
+    "controller" : "my-controller",
+    "configure" : "my-configure"
+  }
 }
-``` 
-
-
-#### name (required)
-
-The package `name` property will be used as the Custom Element name. Elements should be named according to W3C [rules](https://www.w3.org/TR/custom-elements/#concepts) for Custom Elements (all-lowercase, must contain a hyphen). The name of the PIE should be unique, as such, we recommend using your organization name as the first part of the name, e.g. `organization-pie-name`
-
-### version (required)
-
-This is the [semver](semver.org) version for your PIE. The semver rules should be followed so that breaking changes will not be applied to existing questions that use your pie.
-
-### main (required) 
-
-This is the entry point for defining the Custom Element for your PIE. 
-
-This file will be defined as a `.js` file and should be an ES6 module that is the entry point module for your Custom Element. (See examples in [Custom Element](custom-element.md))
-
-> Important: You should not bundle / pack your PIE's dependencies in this file, The [PIE CLI packaging tool](https://github.com/PieLabs/pie-cli) will do that on your behalf.
-
-
-### dependencies
-
-Define dependencies that need to be included with your PIE when it is run in the browser. 
-Care should be taken to only define dependencies that are used in the PIE and to not add too much download size to the PIE when distributed.
-
-### files
-
-Defines what files should be downloaded when the package is installed.
-
-> `README.md`, and `package.json` and some [other files](https://docs.npmjs.com/files/package.json#files) will always be included by npm 
-
-
-
-## Demo and Docs
-
-The [pie-cli] `serve` utility helps load and preview PIEs, it enforces some conventions about how a PIE is structured so that it can be easily reviewed in a consistent way.
-
-To support this, as described above, the following files should be present in a PIE package:
-
-```
-README.md
-docs/
-  schema.json
-  demo/
-    index.html
-    config.json
 ```
 
-#### README.md
+With the above this pie will use `my-el` as the element, `my-controller` as the controller and `my-configure` as the configure element.
 
-This markdown file should describe and document how to use the PIE.
+#### Defining internal components
 
-#### schema.json
+To define internal components you add the source directly to the package.
+* for `element` add it to the npm root package
+* for `controller` and `configure` add a 'controller' or 'configure' directory (which should also be an npm package) and add the source within that.
 
-This file should be a json schema document, describing the model for the `config` object that needs to be provided by a content author to use an instance of the PIE.
+Your directory structure will look like this: 
 
-#### demo/
+```bash
+foo/
+  package.json
+  configure
+    package.json
+    src/ #configure src here
+  controller/
+    package.json
+    src/ #controller src here
+  src/ # element src here
+```
 
-This should contain a sample usage of the PIE, see [Defining Questions](../using/defining-questions.md).
+> Don't forget to set the `main` key in your package.json files to point to your npm package's entry point.
+
+> When using internal packages for controller and configure, the name in their package.json files must be `${mainPackageName}-${controller|configure}`.
+
+#### Defining a combination
+
+You can mix the two techniques above when defining your pie. If you only want to use an external `element` package, but keep `configure` and `controller` internal, you can do the following: 
+
+```javascript
+{
+  "name" : "foo",
+  "dependencies" : {
+    "my-el" : "1.0.0"
+  },
+  "pie" : {
+    "element" : "my-el"
+  }
+}
+```
+
+```bash
+foo/
+  package.json
+  configure # internal configure package 
+    package.json
+    src/ #src here
+  controller/ # internal controller package
+    package.json
+    src/ #src here
+  # no need for element logic - we use an external package
+```
+
+## Demo directory 
+
+It is useful to add a demo pie item to your package. By default pie expects this to be in `docs/demo`. The demo pie item should consist of: 
+
+* index.html - the markup for the item
+* config.js OR config.json - the data for the item
+
+See [defining items](/docs/using/defining-items/) for information on how to define a pie item.
+
+## Schema directory
+
+It is useful to add a schema directory. By default pie expects this to be in `docs/schemas`.
+
+> Note: There may be changes coming in how one defines a schema and how it is validated.
+

@@ -7,7 +7,7 @@ Users can configure one or more instances of PIEs to create questions/assessment
 
 # The pieces of a PIE
 
-A PIE is at a minimum a package that defines a custom element for rendering. It may also define a controller for processing the model before sending it to the ui element and also a configuration ui to allow the data model to be altered. All these parts are defined by using some packaging conventions. Follow the links below for more detail:
+A PIE is at a minimum a package that defines a custom element for rendering. It may also define a controller for processing the model before sending it to the ui element and also a configuration ui, that can be used for editing the pie's data model. All these parts are defined by using some packaging conventions. Follow the links below for more detail:
 
 * [defining a pie package](/developing/packaging)
 * [element](/developing/element)
