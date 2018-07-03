@@ -1,6 +1,6 @@
 {
   "elements": {
-    "categorize": "@pie-element/categorize"
+    "categorize": "@pie-element/categorize@^2.0.1"
   },
   "models": [
     {
