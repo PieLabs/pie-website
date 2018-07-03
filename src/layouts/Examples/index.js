@@ -1,4 +1,10 @@
-import { List, ListCheckbox, ListDivider, ListItem, ListSubHeader } from 'react-toolbox/lib/list';
+import {
+  List,
+  ListCheckbox,
+  ListDivider,
+  ListItem,
+  ListSubHeader
+} from 'react-toolbox/lib/list';
 
 import DemoLoader from '../../components/DemoLoader';
 import FontIcon from 'react-toolbox/lib/font_icon';
@@ -12,34 +18,36 @@ import React from 'react';
 import selectedListItem from './selected-list-item.css';
 import styles from './index.css';
 
-const Root = (props) => {
-
+const Root = props => {
   const metaTitle = '?';
   const { children, body, head } = props;
 
-  return <div>
-    <Helmet title={metaTitle} >
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-        rel="stylesheet" />
-    </Helmet>
-    <Header layout={head.layout} />
-    <div className={styles.holder}>
-      <div className={styles.contentHolder}>
-        {children}
-        <div dangerouslySetInnerHTML={{ __html: body }}></div>
+  return (
+    <div>
+      <Helmet title={metaTitle}>
+        <link
+          href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet"
+        />
+      </Helmet>
+      <Header layout={head.layout} />
+      <div className={styles.holder}>
+        <div className={styles.contentHolder}>
+          {children}
+          <div dangerouslySetInnerHTML={{ __html: body }} />
+        </div>
       </div>
     </div>
-  </div>
+  );
 };
 
 export default class Examples extends React.Component {
-
   constructor(props) {
     super(props);
 
     this.state = {
       currentPie: null
-    }
+    };
 
     this.onClickPie = this.onClickPie.bind(this);
   }
@@ -55,7 +63,6 @@ export default class Examples extends React.Component {
   }
 
   render() {
-
     const { head } = this.props;
     const {
       bottomLinkText,
@@ -64,35 +71,43 @@ export default class Examples extends React.Component {
       publishers,
       developers,
       features,
-      pies } = head;
+      pies
+    } = head;
 
     const { currentPie } = this.state;
 
-    return <Root { ...this.props }>
-      <Head {...this.props} />
+    return (
+      <Root {...this.props}>
+        <Head {...this.props} />
 
-      <div className={styles.panes}>
-        <aside className={styles.list}>
-          <List selectable ripple>
-            <ListSubHeader caption={main.title} />
-            <li className={styles.subtitle}><span>{main.subtitle}</span></li>
-            <ListDivider />
-            {pies.map((p, index) => {
-              const selected = currentPie === p.name;
-              const onClick = this.onClickPie.bind(this, p);
-              return <ListItem
-                theme={selected ? selectedListItem : null}
-                key={index}
-                caption={p.title}
-                legend={p.description}
-                onClick={onClick} />;
-            })}
-          </List>
-        </aside>
-        <div className={styles.examples}>
-          <DemoLoader pies={pies} currentPie={currentPie} />
+        <div className={styles.panes}>
+          <aside className={styles.list}>
+            <List selectable ripple>
+              <ListSubHeader caption={main.title} />
+              <li className={styles.subtitle}>
+                <span>{main.subtitle}</span>
+              </li>
+              <ListDivider />
+              {pies.map((p, index) => {
+                const selected = currentPie === p.name;
+                const onClick = this.onClickPie.bind(this, p);
+                return (
+                  <ListItem
+                    theme={selected ? selectedListItem : undefined}
+                    key={index}
+                    caption={p.title}
+                    legend={p.description}
+                    onClick={onClick}
+                  />
+                );
+              })}
+            </List>
+          </aside>
+          <div className={styles.examples}>
+            <DemoLoader pies={pies} currentPie={currentPie} />
+          </div>
         </div>
-      </div>
-    </Root>;
+      </Root>
+    );
   }
 }
