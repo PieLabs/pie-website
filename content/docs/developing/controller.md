@@ -2,23 +2,10 @@
 
 The PIE Controller is logic that can be provided by your PIE to set the model for the PIE Element for the user interface and to process a user's session to provide an outcome. 
 
-This module should export two functions, `model` and `outcome`
-
+The controller package should export two functions, `model` and `outcome` so it can be used as follows: 
 
 ```javascript
-
-export function model(config, session, env) {
-  return new Promise((resolve, reject) => {
-    //...
-  });
-}
-
-export function outcome(config, session, env) {
-  return new Promise((resolve, reject) => {
-    //...
-  });
-
-}
+import {model, outcome} from 'my-controller';
 ```
 
 
